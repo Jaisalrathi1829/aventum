@@ -1,0 +1,23 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: aventum-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: aventum
+      POSTGRES_USER: aventum
+      # Local development credential only. Not a secret, not reused anywhere else.
+      POSTGRES_PASSWORD: aventum_local_dev
+    ports:
+      # 5433 on the host so this never collides with an existing local PostgreSQL on 5432.
+      - "5433:5432"
+    volumes:
+      - aventum_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aventum -d aventum"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  aventum_pgdata:

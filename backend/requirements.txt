@@ -1,0 +1,10 @@
+# Pinned to the exact versions resolved on the reference machine (Python 3.14, Windows).
+# Determinism requirement (Day 2A §4): the same raw file + code version + config must
+# produce the same canonical records, so dependency versions are pinned, not floated.
+SQLAlchemy==2.0.52
+alembic==1.19.1
+psycopg[binary]==3.3.4
+pandas==3.0.5
+pyarrow==25.0.1
+python-dotenv==1.2.3
+pytest==9.1.1
