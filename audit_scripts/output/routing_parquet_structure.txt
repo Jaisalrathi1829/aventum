@@ -1,0 +1,67 @@
+================================================================================
+FILE-LEVEL PARQUET METADATA
+================================================================================
+File: Nigerian Card Payment Dataset for Predictive Routing.parquet
+Size on disk: 61,352,352 bytes
+Num row groups: 2
+Num rows: 2,026,891
+Num columns: 14
+Created by: parquet-cpp-arrow version 21.0.0
+Format version: 2.6
+
+================================================================================
+KEY-VALUE METADATA (may carry HuggingFace dataset-card / provenance info)
+================================================================================
+--- pandas ---
+{"index_columns": [], "column_indexes": [], "columns": [{"name": "timestamp", "field_name": "timestamp", "pandas_type": "datetimetz", "numpy_type": "datetime64[ns]", "metadata": {"timezone": "UTC"}}, {"name": "transaction_id", "field_name": "transaction_id", "pandas_type": "unicode", "numpy_type": "object", "metadata": null}, {"name": "reference", "field_name": "reference", "pandas_type": "unicode", "numpy_type": "object", "metadata": null}, {"name": "merchant_id", "field_name": "merchant_id", "pandas_type": "unicode", "numpy_type": "object", "metadata": null}, {"name": "merchant_segment", "field_name": "merchant_segment", "pandas_type": "unicode", "numpy_type": "object", "metadata": null}, {"name": "rail_id", "field_name": "rail_id", "pandas_type": "unicode", "numpy_type": "object", "metadata": null}, {"name": "payment_channel", "field_name": "payment_channel", "pandas_type": "unicode", "numpy_type": "object", "metadata": null}, {"name": "amount", "field_name": "amount", "pandas_type": "int64", "numpy_type": "int64", "metadata": null}, {"name": "status", "field_name": "status", "pandas_type": "unicode", "numpy_type": "object", "metadata": null}, {"name": "gateway_response", "field_name": "gateway_response", "pandas_type": "unicode", "numpy_type": "object", "metadata": null}, {"name": "error_code", "field_name": "error_code", "pandas_type": "unicode", "numpy_type": "object", "metadata": null}, {"name": "latency_ms", "field_name": "latency_ms", "pandas_type": "float64", "numpy_type": "float64", "metadata": null}, {"name": "region", "field_name": "region", "pandas_type": "unicode", "numpy_type": "object", "metadata": null}, {"name": "country", "field_name": "country", "pandas_type": "unicode", "numpy_type": "object", "metadata": null}], "creator": {"library": "pyarrow", "version": "21.0.0"}, "pandas_version": "2.3.2"}
+
+
+================================================================================
+ARROW SCHEMA (column name -> type, as stored in the parquet file)
+================================================================================
+  'timestamp': timestamp[ns, tz=UTC]  (nullable=True)
+  'transaction_id': string  (nullable=True)
+  'reference': string  (nullable=True)
+  'merchant_id': string  (nullable=True)
+  'merchant_segment': string  (nullable=True)
+  'rail_id': string  (nullable=True)
+  'payment_channel': string  (nullable=True)
+  'amount': int64  (nullable=True)
+  'status': string  (nullable=True)
+  'gateway_response': string  (nullable=True)
+  'error_code': string  (nullable=True)
+  'latency_ms': double  (nullable=True)
+  'region': string  (nullable=True)
+  'country': string  (nullable=True)
+
+================================================================================
+PER-COLUMN PARQUET STATISTICS (from row group metadata, row group 0)
+================================================================================
+  'timestamp': encoding=('PLAIN', 'RLE', 'RLE_DICTIONARY'), compressed_size=130903, has_stats=True
+       min=Timestamp('2025-01-01 00:00:00+0000', tz='UTC') max=Timestamp('2025-01-07 23:59:00+0000', tz='UTC') null_count=0 distinct_count=None num_values=1048576
+  'transaction_id': encoding=('PLAIN', 'RLE', 'RLE_DICTIONARY'), compressed_size=5241993, has_stats=True
+       min='tx_1' max='tx_999999' null_count=0 distinct_count=None num_values=1048576
+  'reference': encoding=('PLAIN', 'RLE', 'RLE_DICTIONARY'), compressed_size=13969278, has_stats=True
+       min='ref_0000163abc02' max='ref_fffffd42533d' null_count=0 distinct_count=None num_values=1048576
+  'merchant_id': encoding=('PLAIN', 'RLE', 'RLE_DICTIONARY'), compressed_size=1183069, has_stats=True
+       min='m_0000' max='m_0299' null_count=0 distinct_count=None num_values=1048576
+  'merchant_segment': encoding=('PLAIN', 'RLE', 'RLE_DICTIONARY'), compressed_size=264350, has_stats=True
+       min='ENT' max='SME' null_count=0 distinct_count=None num_values=1048576
+  'rail_id': encoding=('PLAIN', 'RLE', 'RLE_DICTIONARY'), compressed_size=96, has_stats=True
+       min='rail_A' max='rail_B' null_count=0 distinct_count=None num_values=1048576
+  'payment_channel': encoding=('PLAIN', 'RLE', 'RLE_DICTIONARY'), compressed_size=264766, has_stats=True
+       min='card' max='ussd' null_count=0 distinct_count=None num_values=1048576
+  'amount': encoding=('PLAIN', 'RLE', 'RLE_DICTIONARY'), compressed_size=1725733, has_stats=True
+       min=100 max=13305 null_count=0 distinct_count=None num_values=1048576
+  'status': encoding=('PLAIN', 'RLE', 'RLE_DICTIONARY'), compressed_size=43796, has_stats=True
+       min='failed' max='success' null_count=0 distinct_count=None num_values=1048576
+  'gateway_response': encoding=('PLAIN', 'RLE', 'RLE_DICTIONARY'), compressed_size=64978, has_stats=True
+       min='Approved' max='Timeout' null_count=0 distinct_count=None num_values=1048576
+  'error_code': encoding=('PLAIN', 'RLE', 'RLE_DICTIONARY'), compressed_size=64962, has_stats=True
+       min='' max='timeout' null_count=0 distinct_count=None num_values=1048576
+  'latency_ms': encoding=('PLAIN', 'RLE', 'RLE_DICTIONARY'), compressed_size=8686983, has_stats=True
+       min=50.0 max=6891.1360169957425 null_count=0 distinct_count=None num_values=1048576
+  'region': encoding=('PLAIN', 'RLE', 'RLE_DICTIONARY'), compressed_size=71, has_stats=True
+       min='NG' max='NG' null_count=0 distinct_count=None num_values=1048576
+  'country': encoding=('PLAIN', 'RLE', 'RLE_DICTIONARY'), compressed_size=71, has_stats=True
+       min='NG' max='NG' null_count=0 distinct_count=None num_values=1048576

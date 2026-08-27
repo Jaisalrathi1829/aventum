@@ -1,0 +1,261 @@
+{
+  "dataset": "upi_transaction_insights_dataset",
+  "row_count": 500,
+  "column_count": 8,
+  "duplicate_row_count": 0,
+  "duplicate_row_pct": 0.0,
+  "columns": [
+    "transaction_id",
+    "date",
+    "time",
+    "amount",
+    "merchant_category",
+    "payment_mode",
+    "location_type",
+    "is_successful"
+  ],
+  "date_like_columns": {
+    "date": {
+      "coverage_pct": 100.0,
+      "min": "2024-01-01T00:00:00",
+      "max": "2024-12-30T00:00:00"
+    },
+    "time": {
+      "coverage_pct": 100.0,
+      "min": "2026-08-23T00:00:00",
+      "max": "2026-08-23T23:56:00"
+    }
+  },
+  "candidate_primary_keys": [
+    {
+      "column": "transaction_id",
+      "uniqueness_pct": 100.0
+    },
+    {
+      "column": "amount",
+      "uniqueness_pct": 100.0
+    }
+  ],
+  "column_profiles": [
+    {
+      "column": "transaction_id",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 500,
+      "unique_pct_of_nonnull": 100.0,
+      "top_values": {
+        "TXN100000": 1,
+        "TXN100001": 1,
+        "TXN100002": 1,
+        "TXN100003": 1,
+        "TXN100004": 1,
+        "TXN100005": 1,
+        "TXN100006": 1,
+        "TXN100007": 1,
+        "TXN100008": 1,
+        "TXN100009": 1,
+        "TXN100010": 1,
+        "TXN100011": 1,
+        "TXN100012": 1,
+        "TXN100013": 1,
+        "TXN100014": 1
+      },
+      "rare_values_count_1": 500,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        500,
+        500
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "date",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 265,
+      "unique_pct_of_nonnull": 53.0,
+      "top_values": {
+        "2024-07-01": 5,
+        "2024-06-07": 5,
+        "2024-09-08": 5,
+        "2024-02-17": 4,
+        "2024-11-08": 4,
+        "2024-02-03": 4,
+        "2024-01-01": 4,
+        "2024-01-26": 4,
+        "2024-12-16": 4,
+        "2024-06-06": 4,
+        "2024-10-22": 4,
+        "2024-04-30": 4,
+        "2024-04-11": 4,
+        "2024-04-14": 4,
+        "2024-10-26": 4
+      },
+      "rare_values_count_1": 113,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        265,
+        265
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "time",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 422,
+      "unique_pct_of_nonnull": 84.4,
+      "top_values": {
+        "23:51": 3,
+        "16:52": 3,
+        "13:06": 3,
+        "14:09": 3,
+        "18:05": 3,
+        "02:38": 3,
+        "11:57": 3,
+        "14:33": 3,
+        "19:09": 3,
+        "20:50": 3,
+        "23:04": 3,
+        "11:40": 2,
+        "01:52": 2,
+        "02:58": 2,
+        "12:45": 2
+      },
+      "rare_values_count_1": 355,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        422,
+        422
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "amount",
+      "pandas_dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 500,
+      "unique_pct_of_nonnull": 100.0,
+      "numeric_summary": {
+        "count": 500.0,
+        "mean": 2523.66854,
+        "std": 1472.6602453474875,
+        "min": 17.62,
+        "1%": 77.88770000000001,
+        "5%": 201.30500000000004,
+        "25%": 1277.3525,
+        "50%": 2552.8149999999996,
+        "75%": 3802.8675000000003,
+        "95%": 4727.5245,
+        "99%": 4928.7183,
+        "max": 4973.82
+      },
+      "min": 17.62,
+      "max": 4973.82,
+      "negative_count": 0,
+      "zero_count": 0,
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "merchant_category",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 10,
+      "unique_pct_of_nonnull": 2.0,
+      "top_values": {
+        "Online Services": 60,
+        "Health & Pharmacy": 54,
+        "Fuel": 53,
+        "Groceries": 52,
+        "Food & Dining": 50,
+        "Travel": 50,
+        "Shopping": 47,
+        "Entertainment": 46,
+        "Other": 44,
+        "Bills & Utilities": 44
+      },
+      "rare_values_count_1": 0,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        10,
+        10
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "payment_mode",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 4,
+      "unique_pct_of_nonnull": 0.8,
+      "top_values": {
+        "Online": 134,
+        "QR": 128,
+        "Contact": 120,
+        "AutoPay": 118
+      },
+      "rare_values_count_1": 0,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        4,
+        4
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "location_type",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 3,
+      "unique_pct_of_nonnull": 0.6,
+      "top_values": {
+        "Urban": 174,
+        "Rural": 173,
+        "Semi-Urban": 153
+      },
+      "rare_values_count_1": 0,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        3,
+        3
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "is_successful",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 2,
+      "unique_pct_of_nonnull": 0.4,
+      "top_values": {
+        "No": 250,
+        "Yes": 250
+      },
+      "rare_values_count_1": 0,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        2,
+        2
+      ],
+      "placeholder_like_value_count": 0
+    }
+  ],
+  "source_file": "data\\raw\\UPI Transaction Insights Dataset\\upi_transaction_insights_dataset.csv",
+  "file_size_bytes": 32059,
+  "detected_encoding": "utf-8"
+}

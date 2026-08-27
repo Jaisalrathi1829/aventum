@@ -1,0 +1,218 @@
+{
+  "generated_by": "Day 1 audit (audit_scripts/profile_datasets.py, deep_analysis.py, cross_checks.py)",
+  "generated_note": "Machine-readable summary of docs/DATASET_INVENTORY.md and related Day 1 documents. Read-only audit output; no raw file was modified.",
+  "datasets": [
+    {
+      "dataset_name": "upi_transactions_2024",
+      "source_file": "data/raw/UPI Transactions 2024 Dataset/upi_transactions_2024.csv",
+      "rows": 250000,
+      "columns": 17,
+      "grain": "one payment transaction",
+      "temporal_range": {"min": "2024-01-01T00:05:10", "max": "2024-12-30T23:55:40"},
+      "temporal_resolution": "second (statistically reliable only at daily-or-coarser resolution; see requirements matrix section 9)",
+      "important_fields": ["transaction id", "timestamp", "amount (INR)", "transaction_status", "sender_bank", "receiver_bank", "device_type", "network_type", "merchant_category", "sender_state", "transaction type", "fraud_flag"],
+      "key_candidates": [{"column": "transaction id", "uniqueness_pct": 100.0}],
+      "quality_summary": {
+        "null_pct_overall": 0.0,
+        "duplicate_row_pct": 0.0,
+        "success_rate_pct": 95.05,
+        "fraud_rate_pct": 0.192,
+        "bank_count": 8,
+        "state_count": 10,
+        "failure_rate_spread_by_dimension_pts": {"sender_bank": 0.281, "receiver_bank": 0.506, "device_type": 0.220, "network_type": 0.364, "hour_of_day": 0.863, "day_of_week": 0.324},
+        "notes": "Failure rate is near-uniform across every tested dimension (0.2-0.9 pts on a 4.95% base) - see DATA_QUALITY_REPORT.md"
+      },
+      "aventum_role": "PRIMARY TRANSACTION DATA",
+      "joinability": {
+        "to_upi_transaction_insights_dataset": "INVALID / FABRICATES RELATIONSHIPS (0 id overlap, no shared key)",
+        "to_npci_bank_snapshots": "POSSIBLE BUT HIGH-RISK (bank-name join, manual alias table required for SBI/PNB, temporal mismatch Sep-2023 vs 2024)",
+        "to_upi_india_monthly_enriched": "VALID ONLY FOR AGGREGATION (order-of-magnitude sanity check; sample is ~0.000142% of claimed national volume)"
+      },
+      "provenance_status": "Assessed as synthetic (near-certain); circumstantial unconfirmed match to 'UPI TRANSACTION DATASET' README/dashboard stats (6 of 7 checked statistics match closely)"
+    },
+    {
+      "dataset_name": "upi_transaction_insights_dataset",
+      "source_file": "data/raw/UPI Transaction Insights Dataset/upi_transaction_insights_dataset.csv",
+      "rows": 500,
+      "columns": 8,
+      "grain": "one payment transaction",
+      "temporal_range": {"min": "2024-01-01", "max": "2024-12-30"},
+      "temporal_resolution": "day (date) + separate minute-precision time field, not merged",
+      "important_fields": ["transaction_id", "date", "time", "amount", "merchant_category", "payment_mode", "location_type", "is_successful"],
+      "key_candidates": [{"column": "transaction_id", "uniqueness_pct": 100.0}],
+      "quality_summary": {
+        "null_pct_overall": 0.0,
+        "duplicate_row_pct": 0.0,
+        "is_successful_split": "exactly 50.0% / 50.0% - artificial class balance, not a real base rate",
+        "notes": "Amount capped just under 5000, 2-decimal precision - synthetic-generation signature"
+      },
+      "aventum_role": "SUPPORTING DATA (limited use - too small and artificially balanced for analytical base)",
+      "joinability": {
+        "to_upi_transactions_2024": "INVALID / FABRICATES RELATIONSHIPS (0 id overlap)"
+      },
+      "provenance_status": "Assessed as synthetic (near-certain) - class-balance and category-balance signatures consistent with ML-tutorial-style generation"
+    },
+    {
+      "dataset_name": "upi_india_monthly_enriched",
+      "source_file": "data/raw/Indian UPI Transactions/upi_india_monthly_enriched.csv",
+      "rows": 120,
+      "columns": 18,
+      "grain": "one calendar month, national ecosystem aggregate",
+      "temporal_range": {"min": "2016-01-01", "max": "2025-12-01"},
+      "temporal_resolution": "month",
+      "important_fields": ["Date", "Volume_Mn", "Value_Cr", "Volume_MoM_%", "Volume_YoY_%", "Volume_RollMean_3M", "Is_Covid_Period", "Is_Festive_Season", "Event_Code"],
+      "key_candidates": [{"column": "Date", "uniqueness_pct": 100.0}],
+      "quality_summary": {
+        "null_pct_notes": "structurally expected nulls in MoM/YoY/rolling-mean warm-up periods only",
+        "inf_values_present_in": ["Volume_MoM_%", "Value_MoM_%"],
+        "notes": "Already contains pre-engineered/derived features, not a raw export"
+      },
+      "aventum_role": "REFERENCE / BENCHMARK DATA (low confidence)",
+      "joinability": {
+        "to_npci_upi_product_statistics": "INVALID / FABRICATES RELATIONSHIPS if merged - 78 of 89 overlapping months (88%) differ by more than a trivial threshold, divergence up to 840 Mn volume / INR 95,153 Cr value by 2023",
+        "to_upi_transactions_2024": "VALID ONLY FOR AGGREGATION - transaction sample is ~0.000142% of this file's claimed national 2024 volume"
+      },
+      "provenance_status": "Derived from an unverified/uncorroborated base, possibly partly modeled - low confidence, material contradiction with npci_upi_product_statistics documented"
+    },
+    {
+      "dataset_name": "npci_upi_product_statistics",
+      "source_file": "data/raw/NPCI Products Statistics Since Launch/UPI Product  Statistics.csv",
+      "rows": 92,
+      "columns": 4,
+      "grain": "one calendar month, national ecosystem aggregate (UPI product)",
+      "temporal_range": {"min": "2016-04", "max": "2023-11"},
+      "temporal_resolution": "month",
+      "important_fields": ["Month", "No. of Banks live on UPI", "Volume (in Mn)", "Value (in Cr.)"],
+      "key_candidates": [{"column": "Month", "uniqueness_pct": 100.0}],
+      "quality_summary": {"placeholder_rows": 0, "malformed_values": "one cell with a non-breaking-space character appended to a numeric string"},
+      "aventum_role": "REFERENCE / BENCHMARK DATA (preferred over upi_india_monthly_enriched)",
+      "joinability": {"to_upi_india_monthly_enriched": "INVALID / FABRICATES RELATIONSHIPS if merged"},
+      "provenance_status": "Plausibly real published NPCI statistics, uncited in-file, medium confidence"
+    },
+    {
+      "dataset_name": "npci_bhim_statistics",
+      "source_file": "data/raw/NPCI Products Statistics Since Launch/BHIM product Statistics.csv",
+      "rows": 91, "columns": 4, "grain": "one calendar month, national aggregate (BHIM product)",
+      "temporal_range": {"min": "2016-04", "max": "2023-10"}, "temporal_resolution": "month",
+      "important_fields": ["Month", "No. of Banks live on BHIM", "Volume (in Mn)", "Value (in Cr.)"],
+      "key_candidates": [{"column": "Month", "uniqueness_pct": 100.0}],
+      "quality_summary": {"placeholder_rows_prelaunch": 8},
+      "aventum_role": "REFERENCE / BENCHMARK DATA (multi-instrument context only, not UPI-specific)",
+      "joinability": {}, "provenance_status": "Plausibly real published NPCI statistics, uncited in-file, medium confidence"
+    },
+    {
+      "dataset_name": "npci_fastag_statistics",
+      "source_file": "data/raw/NPCI Products Statistics Since Launch/Fastag Statistics.csv",
+      "rows": 85, "columns": 5, "grain": "one calendar month, national aggregate (FASTag product)",
+      "temporal_range": {"min": "2016-11", "max": "2023-11"}, "temporal_resolution": "month",
+      "important_fields": ["Month", "No. of Banks Live on NETC", "Tag Issuance (In Nos.)", "Volume (In Mn)", "Amount (In Cr)"],
+      "key_candidates": [{"column": "Month", "uniqueness_pct": 100.0}],
+      "quality_summary": {"placeholder_inconsistency": "uses 'NA' for one row where sibling files use '-'"},
+      "aventum_role": "REFERENCE / BENCHMARK DATA (multi-instrument context only, not UPI-specific)",
+      "joinability": {}, "provenance_status": "Plausibly real published NPCI statistics, uncited in-file, medium confidence"
+    },
+    {
+      "dataset_name": "npci_imps_statistics",
+      "source_file": "data/raw/NPCI Products Statistics Since Launch/IMPS Statistics.csv",
+      "rows": 122, "columns": 4, "grain": "one calendar month, national aggregate (IMPS product)",
+      "temporal_range": {"min": "2013-09", "max": "2023-10"}, "temporal_resolution": "month",
+      "important_fields": ["Month", "No. of Member Banks", "No. of Transactions (in MN)", "Amount (in Cr)"],
+      "key_candidates": [{"column": "Month", "uniqueness_pct": 100.0}],
+      "quality_summary": {"placeholder_rows": 0},
+      "aventum_role": "REFERENCE / BENCHMARK DATA (multi-instrument context only, not UPI-specific)",
+      "joinability": {}, "provenance_status": "Plausibly real published NPCI statistics, uncited in-file, medium confidence"
+    },
+    {
+      "dataset_name": "npci_star99_statistics",
+      "source_file": "data/raw/NPCI Products Statistics Since Launch/PS99.xlsx.csv",
+      "rows": 91, "columns": 4, "grain": "one calendar month, national aggregate (*99# USSD banking product)",
+      "temporal_range": {"min": "2016-04", "max": "2023-10"}, "temporal_resolution": "month",
+      "important_fields": ["Month", "No. of Banks live on *99#", "Volume (Mn)", "Value (in Cr)"],
+      "key_candidates": [{"column": "Month", "uniqueness_pct": 100.0}],
+      "quality_summary": {"placeholder_rows_prelaunch": 8},
+      "aventum_role": "REFERENCE / BENCHMARK DATA (multi-instrument context only, not UPI-specific)",
+      "joinability": {}, "provenance_status": "Plausibly real published NPCI statistics, uncited in-file, medium confidence"
+    },
+    {
+      "dataset_name": "npci_upi_remitter_banks",
+      "source_file": "data/raw/NPCI Products Statistics Since Launch/UPI Remitter Banks.csv",
+      "rows": 50, "columns": 8, "grain": "one bank, single cross-sectional snapshot",
+      "temporal_range": {"min": "2023-09 (stated in header)", "max": "2023-09 (stated in header)"}, "temporal_resolution": "none (single snapshot)",
+      "important_fields": ["UPI Remitter Banks (Sep-2023)", "Total Volume (In Mn)", "Approved %", "BD %", "TD%", "Debit Reversal Success %"],
+      "key_candidates": [{"column": "UPI Remitter Banks (Sep-2023)", "uniqueness_pct": 100.0}],
+      "quality_summary": {"notable_outlier": "Central Bank of India TD% = 53.47%, vs low-single-digit median across other 49 banks"},
+      "aventum_role": "REFERENCE / BENCHMARK DATA + SYNTHETIC BASELINE INPUT (calibration for synthetic error-code proportions)",
+      "joinability": {"to_upi_transactions_2024": "POSSIBLE BUT HIGH-RISK - bank-name join needs manual alias table (SBI, PNB unmatched by automatic normalization), temporal mismatch Sep-2023 vs 2024"},
+      "provenance_status": "Plausibly real published NPCI statistics, uncited in-file, medium confidence"
+    },
+    {
+      "dataset_name": "npci_upi_beneficiary_bank",
+      "source_file": "data/raw/NPCI Products Statistics Since Launch/UPI Beneficiary Bank.csv",
+      "rows": 50, "columns": 7, "grain": "one bank, single cross-sectional snapshot",
+      "temporal_range": {"min": "2023-09 (stated in header)", "max": "2023-09 (stated in header)"}, "temporal_resolution": "none (single snapshot)",
+      "important_fields": ["UPI Beneficiary Banks (Sep-2023)", "Total Volume (In Mn)", "Approved %", "BD%", "TD%", "Deemed Approved %"],
+      "key_candidates": [{"column": "UPI Beneficiary Banks (Sep-2023)", "uniqueness_pct": 100.0}],
+      "quality_summary": {},
+      "aventum_role": "REFERENCE / BENCHMARK DATA + SYNTHETIC BASELINE INPUT",
+      "joinability": {"to_upi_transactions_2024": "POSSIBLE BUT HIGH-RISK - same reasoning as npci_upi_remitter_banks"},
+      "provenance_status": "Plausibly real published NPCI statistics, uncited in-file, medium confidence"
+    },
+    {
+      "dataset_name": "npci_upi_payers_performance_psp",
+      "source_file": "data/raw/NPCI Products Statistics Since Launch/UPI Payers Perforance PSP.csv",
+      "rows": 32, "columns": 6, "grain": "one PSP, single cross-sectional snapshot, period unstated",
+      "temporal_range": {"min": "unstated", "max": "unstated"}, "temporal_resolution": "none (single snapshot)",
+      "important_fields": ["Payer PSP", "Total Volume (In Mn)", "Approved %", "BD %", "TD %"],
+      "key_candidates": [],
+      "quality_summary": {"date_stated_in_file": false},
+      "aventum_role": "REFERENCE / BENCHMARK DATA + SYNTHETIC BASELINE INPUT",
+      "joinability": {"to_upi_transactions_2024": "POSSIBLE BUT HIGH-RISK - no PSP-app dimension exists in the transaction file at all"},
+      "provenance_status": "Plausibly real published NPCI statistics, uncited in-file, medium confidence; snapshot period unverifiable"
+    },
+    {
+      "dataset_name": "npci_upi_mandate_creation",
+      "source_file": "data/raw/NPCI Products Statistics Since Launch/UPI mandate creation.csv",
+      "rows": 50, "columns": 6, "grain": "one bank, single cross-sectional snapshot, period unstated",
+      "temporal_range": {"min": "unstated", "max": "unstated"}, "temporal_resolution": "none (single snapshot)",
+      "important_fields": ["Remitter Bank", "Total Volume", "Approved%", "BD%", "TD%"],
+      "key_candidates": [],
+      "quality_summary": {"filename_content_mismatch": true, "note": "Filename claims UPI mandate-creation data; actual content is an undated remitter-bank approval snapshot structurally distinct from UPI Remitter Banks.csv (different units/values)"},
+      "aventum_role": "DO NOT USE (filename/content mismatch - never cite as mandate data)",
+      "joinability": {}, "provenance_status": "Filename/content mismatch - do not trust label; content plausibly real but mislabeled"
+    },
+    {
+      "dataset_name": "npci_year_wise_digital_transaction",
+      "source_file": "data/raw/NPCI Products Statistics Since Launch/Year wise Digital Transaction.csv",
+      "rows": 5, "columns": 11, "grain": "one financial year, national, multi-instrument",
+      "temporal_range": {"min": "FY2018-19", "max": "FY2022-23 (partial)"}, "temporal_resolution": "year",
+      "important_fields": ["Financial Year", "Volume (in Crore) - UPI", "Value (in Lakh Crore) - UPI"],
+      "key_candidates": [{"column": "Financial Year", "uniqueness_pct": 100.0}],
+      "quality_summary": {"encoding": "cp1252 (non-UTF-8, en-dash byte 0x96 found)"},
+      "aventum_role": "REFERENCE / BENCHMARK DATA (coarse multi-year context only)",
+      "joinability": {}, "provenance_status": "Plausibly real published NPCI statistics, uncited in-file, medium confidence"
+    },
+    {
+      "dataset_name": "npci_upi_apps_RAW",
+      "source_file": "data/raw/NPCI Products Statistics Since Launch/UPI Apps.csv",
+      "rows": 73, "columns": 12, "grain": "one PSP app, single snapshot (Oct-2023)",
+      "temporal_range": {"min": "2023-10 (stated in title row)", "max": "2023-10 (stated in title row)"}, "temporal_resolution": "none (single snapshot)",
+      "important_fields": ["Application Name", "Customer Initiated Transactions", "B2C Transactions", "B2B Transactions", "On-us Transactions", "Total"],
+      "key_candidates": [],
+      "quality_summary": {"header_structure": "irregular 3-row multi-index header, requires manual parsing"},
+      "aventum_role": "REFERENCE / BENCHMARK DATA (app-level context only, not used in core pipeline)",
+      "joinability": {}, "provenance_status": "Plausibly real published NPCI statistics, uncited in-file, medium confidence"
+    },
+    {
+      "dataset_name": "UPI_TRANSACTION_DATASET_folder (README + pbix + images + video)",
+      "source_file": "data/raw/UPI TRANSACTION DATASET/",
+      "rows": null, "columns": null, "grain": "not applicable - no tabular data present",
+      "temporal_range": {}, "temporal_resolution": "not applicable",
+      "important_fields": [],
+      "key_candidates": [],
+      "quality_summary": {"note": "Underlying transaction data embedded in UPI_DashBoard.pbix (9.3MB Power BI binary), not opened - out of scope for pandas-based audit"},
+      "aventum_role": "DO NOT USE (as data) - README/images usable only as design/narrative reference",
+      "joinability": {"to_upi_transactions_2024": "Circumstantial unconfirmed match - 6 of 7 checked README statistics match upi_transactions_2024 closely; fraud-rate claim mismatches by ~100x"},
+      "provenance_status": "Personal Power BI portfolio project by an individually-credited author; explicitly described as 'simulating' bank operations"
+    }
+  ]
+}

@@ -1,0 +1,253 @@
+================================================================================
+A. FAILURE RATE VARIANCE ACROSS SEGMENTS (root-cause / anomaly feasibility)
+================================================================================
+Overall failure rate: 4.950%  (n=250000)
+
+--- sender_bank --- (max-min failure-rate spread: 0.281 pts)
+              mean  count
+sender_bank              
+Yes Bank     5.105  24860
+ICICI        5.035  29769
+Kotak        4.982  20032
+IndusInd     4.954  25173
+Axis         4.948  25042
+SBI          4.937  62693
+PNB          4.895  24946
+HDFC         4.823  37485
+
+--- receiver_bank --- (max-min failure-rate spread: 0.506 pts)
+                mean  count
+receiver_bank              
+HDFC           5.166  37651
+Axis           5.122  24992
+ICICI          5.009  29944
+SBI            4.976  62378
+PNB            4.879  24802
+Yes Bank       4.866  25009
+Kotak          4.722  20138
+IndusInd       4.660  25086
+
+--- device_type --- (max-min failure-rate spread: 0.220 pts)
+              mean   count
+device_type               
+Web          5.155   12610
+Android      4.941  187777
+iOS          4.934   49613
+
+--- network_type --- (max-min failure-rate spread: 0.364 pts)
+               mean   count
+network_type               
+3G            5.220   12471
+4G            4.982  149813
+WiFi          4.862   25134
+5G            4.856   62582
+
+--- transaction type --- (max-min failure-rate spread: 0.212 pts)
+                   mean   count
+transaction type               
+Recharge          5.093   12527
+P2P               4.958  112445
+P2M               4.950   87660
+Bill Payment      4.881   37368
+
+--- merchant_category --- (max-min failure-rate spread: 0.491 pts)
+                    mean  count
+merchant_category              
+Education          5.251   7598
+Shopping           5.085  29872
+Grocery            5.009  49966
+Food               5.007  37464
+Other              4.954  24828
+Entertainment      4.925  20103
+Utilities          4.862  22338
+Healthcare         4.833  12663
+Fuel               4.804  25063
+Transport          4.760  20105
+
+--- sender_state --- (max-min failure-rate spread: 0.511 pts)
+                 mean  count
+sender_state                
+Uttar Pradesh   5.218  30125
+Tamil Nadu      5.117  25367
+West Bengal     5.042  19972
+Andhra Pradesh  4.999  20006
+Delhi           4.974  24870
+Maharashtra     4.922  37427
+Karnataka       4.863  29756
+Rajasthan       4.795  19981
+Gujarat         4.780  20061
+Telangana       4.707  22435
+
+--- sender_age_group --- (max-min failure-rate spread: 0.281 pts)
+                   mean  count
+sender_age_group              
+36-45             5.126  62873
+46-55             5.056  24841
+56+               4.916  12509
+18-25             4.886  62345
+26-35             4.845  87432
+
+--- hour_of_day --- (max-min failure-rate spread: 0.863 pts)
+              mean  count
+hour_of_day              
+6            5.398   3501
+0            5.372   3388
+1            5.348   2244
+10           5.186  13904
+2            5.163   1685
+19           5.148  21232
+4            5.132   1247
+15           5.117  12624
+22           5.030   9364
+3            5.023   1314
+8            5.007   8349
+12           4.995  17516
+14           4.969  11472
+17           4.967  18340
+11           4.961  16328
+20           4.885  18506
+7            4.885   5630
+18           4.849  20064
+9            4.813  10450
+23           4.779   5817
+13           4.768  15038
+21           4.750  16253
+16           4.660  13992
+5            4.535   1742
+
+--- day_of_week --- (max-min failure-rate spread: 0.324 pts)
+              mean  count
+day_of_week              
+Sunday       5.097  36003
+Saturday     5.086  35334
+Wednesday    4.989  35700
+Monday       4.960  36495
+Thursday     4.959  35432
+Tuesday      4.789  35540
+Friday       4.772  35496
+
+--- is_weekend --- (max-min failure-rate spread: 0.197 pts)
+             mean   count
+is_weekend               
+1           5.091   71337
+0           4.894  178663
+
+================================================================================
+B. FRAUD FLAG vs FAILURE STATUS relationship (leakage check)
+================================================================================
+transaction_status  FAILED  SUCCESS
+fraud_flag                         
+0                    12355   237165
+1                       21      459
+
+================================================================================
+C. TEMPORAL DENSITY (temporal feasibility for incident demo)
+================================================================================
+Timestamp span: 2024-01-01 00:05:10 to 2024-12-30 23:55:40 (364 days)
+Avg transactions/day: 686.8
+Per-day count: min=595, median=683.0, max=772
+Per-hour count: min=0, median=29.0, max=82, mean=28.54
+Per-10-minute count: min=0, median=4.0, max=23, mean=4.76
+Fraction of 10-min windows with 0 transactions: 12.46%
+Fraction of 10-min windows with <5 transactions: 51.70%
+Rows sharing the same to-the-minute timestamp as another row: 66068 (26.43%)
+
+================================================================================
+D. SEGMENTATION VOLUME FEASIBILITY (2-way intersections)
+================================================================================
+sender_bank x device_type: 24 cells, min=1025, median=4967, max=47180, cells<30=0 (0%), cells<100=0 (0%)
+sender_bank x sender_state: 80 cells, min=1591, median=2562, max=9490, cells<30=0 (0%), cells<100=0 (0%)
+sender_bank x merchant_category: 80 cells, min=615, median=2491, max=12587, cells<30=0 (0%), cells<100=0 (0%)
+device_type x network_type: 12 cells, min=636, median=8480, max=112413, cells<30=0 (0%), cells<100=0 (0%)
+sender_bank x network_type: 32 cells, min=991, median=5607, max=37485, cells<30=0 (0%), cells<100=0 (0%)
+sender_state x merchant_category: 100 cells, min=596, median=2239, max=7444, cells<30=0 (0%), cells<100=0 (0%)
+sender_bank x transaction type: 32 cells, min=984, median=7860, max=28063, cells<30=0 (0%), cells<100=0 (0%)
+
+================================================================================
+E. BANK-NAME JOIN-KEY NORMALIZATION ACROSS DATASETS
+================================================================================
+Banks in upi_transactions_2024 (sender/receiver, 8): ['Axis', 'HDFC', 'ICICI', 'IndusInd', 'Kotak', 'PNB', 'SBI', 'Yes Bank']
+
+Distinct bank/PSP name strings across NPCI Remitter+Beneficiary+PSP files (59):
+  'AU small Finance Bank'
+  'Airtel Payments Bank'
+  'Andhra Pradesh Grameena Vikas Bank'
+  'Andhra Pragathi Grameena Bank'
+  'Axis Bank Ltd'
+  'Axis Bank Ltd.'
+  'BHIM'
+  'Bandhan Bank'
+  'Bank of Baroda'
+  'Bank of India'
+  'Bank of Maharashtra'
+  'Baroda Rajasthan Kshetriya Gramin Bank'
+  'Baroda UP Gramin Bank'
+  'CITIBANK'
+  'Canara Bank'
+  'Central Bank Of India'
+  'Citibank'
+  'City Union Bank'
+  'Cosmos Bank'
+  'DBS Bank India Limited'
+  'ESAF Small Finance Bank Ltd.'
+  'Equitas Small Finance Bank'
+  'Fampay (PPI)'
+  'Federal Bank'
+  'Fino Payments Bank Limited FIP'
+  'HDFC BANK LTD'
+  'HDFC Bank Ltd'
+  'ICICI Bank'
+  'IDBI Bank Limited'
+  'IDFC FIRST Bank'
+  'INDUSIND BANK'
+  'India Post Payment Bank'
+  'Indian Bank'
+  'Indian Overseas Bank'
+  'IndusInd Bank'
+  'Jammu and Kashmir Bank'
+  'Karnataka Bank'
+  'Karur Vysya Bank'
+  'Kerala Gramin Bank'
+  'Kotak Mahindra Bank'
+  'Maharashtra Gramin Bank'
+  'Payee PSP'
+  'Paytm Payments Bank'
+  'Pragathi Krishna Gramin Bank'
+  'Punjab National Bank'
+  'Punjab and Sind Bank'
+  'RBL Bank'
+  'Rajasthan Marudhara Gramin Bank'
+  'Saraswat Bank'
+  'Sarva Haryana Gramin Bank'
+  'South Indian Bank'
+  'Standard Chartered'
+  'State Bank Of India'
+  'Tamilnad Mercantile Bank'
+  'Tri O Tech Solutions Private Limited'
+  'UCO Bank'
+  'Ujjivan Small Finance Bank'
+  'Union Bank of India'
+  'Yes Bank Ltd'
+
+After normalization (strip Ltd/Limited/punctuation, uppercase):
+Matched 6/8 tx banks to an NPCI name:
+  'IndusInd'           -> 'IndusInd Bank'  [substring]
+  'Kotak'              -> 'Kotak Mahindra Bank'  [substring]
+  'HDFC'               -> 'HDFC Bank Ltd'  [substring]
+  'ICICI'              -> 'ICICI Bank'  [substring]
+  'Yes Bank'           -> 'Yes Bank Ltd'  [exact]
+  'Axis'               -> 'Axis Bank Ltd'  [substring]
+Unmatched tx banks (2): ['PNB', 'SBI']
+
+================================================================================
+F. TRANSACTION-ID OVERLAP BETWEEN THE TWO TRANSACTION-LEVEL DATASETS
+================================================================================
+upi_transactions_2024 id format sample: ['TXN0000152678', 'TXN0000214473', 'TXN0000226962']
+upi_transaction_insights id format sample: ['TXN100139', 'TXN100441', 'TXN100486']
+Exact ID overlap: 0 ids
+
+================================================================================
+G. DATE-RANGE OVERLAP CHECK: insights dataset vs transactions_2024
+================================================================================
+insights date range: 2024-01-01 00:00:00 to 2024-12-30 00:00:00
+tx2024 date range: 2024-01-01 00:05:10 to 2024-12-30 23:55:40

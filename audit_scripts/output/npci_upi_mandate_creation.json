@@ -1,0 +1,227 @@
+{
+  "dataset": "npci_upi_mandate_creation",
+  "row_count": 50,
+  "column_count": 6,
+  "duplicate_row_count": 0,
+  "duplicate_row_pct": 0.0,
+  "columns": [
+    "Sr. No.",
+    "Remitter Bank",
+    "Total Volume",
+    "Approved%",
+    "BD%",
+    "TD%"
+  ],
+  "date_like_columns": {},
+  "candidate_primary_keys": [
+    {
+      "column": "Sr. No.",
+      "uniqueness_pct": 100.0
+    },
+    {
+      "column": "Remitter Bank",
+      "uniqueness_pct": 100.0
+    },
+    {
+      "column": "Total Volume",
+      "uniqueness_pct": 100.0
+    }
+  ],
+  "column_profiles": [
+    {
+      "column": "Sr. No.",
+      "pandas_dtype": "int64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 50,
+      "unique_pct_of_nonnull": 100.0,
+      "numeric_summary": {
+        "count": 50.0,
+        "mean": 25.5,
+        "std": 14.577379737113251,
+        "min": 1.0,
+        "1%": 1.49,
+        "5%": 3.45,
+        "25%": 13.25,
+        "50%": 25.5,
+        "75%": 37.75,
+        "95%": 47.55,
+        "99%": 49.51,
+        "max": 50.0
+      },
+      "min": 1,
+      "max": 50,
+      "negative_count": 0,
+      "zero_count": 0,
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "Remitter Bank",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 50,
+      "unique_pct_of_nonnull": 100.0,
+      "top_values": {
+        "State Bank Of India": 1,
+        "HDFC BANK LTD": 1,
+        "Bank of Baroda": 1,
+        "ICICI Bank": 1,
+        "Axis Bank Ltd.": 1,
+        "Punjab National Bank": 1,
+        "Bank of India": 1,
+        "Kotak Mahindra Bank": 1,
+        "Union Bank of India": 1,
+        "Central Bank Of India": 1,
+        "Canara Bank": 1,
+        "IDBI Bank Limited": 1,
+        "Indian Bank": 1,
+        "IDFC FIRST Bank": 1,
+        "INDUSIND BANK": 1
+      },
+      "rare_values_count_1": 50,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        50,
+        50
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "Total Volume",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 50,
+      "unique_pct_of_nonnull": 100.0,
+      "top_values": {
+        "6,77,064": 1,
+        "3,89,570": 1,
+        "2,65,043": 1,
+        "2,40,238": 1,
+        "1,67,008": 1,
+        "1,22,635": 1,
+        "1,07,872": 1,
+        "1,06,794": 1,
+        "1,02,938": 1,
+        "63,226": 1,
+        "56,774": 1,
+        "42,170": 1,
+        "27,355": 1,
+        "24,046": 1,
+        "23,342": 1
+      },
+      "rare_values_count_1": 50,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        50,
+        50
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "Approved%",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 48,
+      "unique_pct_of_nonnull": 96.0,
+      "top_values": {
+        "93.82%": 2,
+        "95.72%": 2,
+        "93.93%": 1,
+        "95.70%": 1,
+        "94.20%": 1,
+        "97.31%": 1,
+        "95.95%": 1,
+        "93.27%": 1,
+        "95.84%": 1,
+        "95.62%": 1,
+        "93.58%": 1,
+        "45.85%": 1,
+        "93.59%": 1,
+        "95.14%": 1,
+        "92.65%": 1
+      },
+      "rare_values_count_1": 46,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        48,
+        48
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "BD%",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 37,
+      "unique_pct_of_nonnull": 74.0,
+      "top_values": {
+        "0.66%": 4,
+        "0.80%": 3,
+        "0.89%": 3,
+        "0.60%": 3,
+        "0.76%": 2,
+        "0.68%": 2,
+        "0.87%": 2,
+        "0.00%": 2,
+        "0.52%": 1,
+        "0.64%": 1,
+        "0.45%": 1,
+        "1.09%": 1,
+        "0.90%": 1,
+        "0.94%": 1,
+        "0.67%": 1
+      },
+      "rare_values_count_1": 29,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        37,
+        37
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "TD%",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 49,
+      "unique_pct_of_nonnull": 98.0,
+      "top_values": {
+        "5.52%": 2,
+        "5.31%": 1,
+        "3.77%": 1,
+        "5.15%": 1,
+        "2.24%": 1,
+        "3.38%": 1,
+        "5.64%": 1,
+        "3.48%": 1,
+        "3.58%": 1,
+        "53.47%": 1,
+        "5.46%": 1,
+        "4.19%": 1,
+        "6.12%": 1,
+        "5.33%": 1,
+        "4.84%": 1
+      },
+      "rare_values_count_1": 48,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        49,
+        49
+      ],
+      "placeholder_like_value_count": 0
+    }
+  ],
+  "source_file": "data\\raw\\NPCI Products Statistics Since Launch\\UPI mandate creation.csv",
+  "file_size_bytes": 2537,
+  "detected_encoding": "utf-8"
+}

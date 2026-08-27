@@ -1,0 +1,190 @@
+Loaded 2,026,891 rows, 14 columns
+Columns: ['timestamp', 'transaction_id', 'reference', 'merchant_id', 'merchant_segment', 'rail_id', 'payment_channel', 'amount', 'status', 'gateway_response', 'error_code', 'latency_ms', 'region', 'country']
+Dtypes:
+timestamp           datetime64[ns, UTC]
+transaction_id                      str
+reference                           str
+merchant_id                         str
+merchant_segment                    str
+rail_id                             str
+payment_channel                     str
+amount                            int64
+status                              str
+gateway_response                    str
+error_code                          str
+latency_ms                      float64
+region                              str
+country                             str
+dtype: object
+
+================================================================================
+A. NULLS / DUPLICATES / BASIC SHAPE
+================================================================================
+Total rows: 2,026,891
+Fully duplicate rows: 0
+Null counts per column:
+timestamp           0
+transaction_id      0
+reference           0
+merchant_id         0
+merchant_segment    0
+rail_id             0
+payment_channel     0
+amount              0
+status              0
+gateway_response    0
+error_code          0
+latency_ms          0
+region              0
+country             0
+dtype: int64
+
+================================================================================
+B. GRAIN: transaction_id repetition
+================================================================================
+Distinct transaction_id: 2,026,891 (rows: 2,026,891)
+Rows per transaction_id: min=1, median=1.0, mean=1.000, max=1
+Distribution of rows-per-transaction_id:
+count
+1    2026891
+Name: count, dtype: int64
+
+================================================================================
+C. GRAIN: reference field uniqueness
+================================================================================
+Distinct reference: 2,026,891 (rows: 2,026,891)
+reference 100% unique? True
+
+================================================================================
+D. For a repeated transaction_id, what differs across its rows?
+================================================================================
+
+================================================================================
+E. CATEGORICAL DISTRIBUTIONS
+================================================================================
+
+--- merchant_segment (nunique=3) ---
+merchant_segment
+MID    736757
+ENT    662224
+SME    627910
+
+--- rail_id (nunique=5) ---
+rail_id
+rail_B    563382
+rail_A    535225
+rail_D    424304
+rail_C    258667
+rail_E    245313
+
+--- payment_channel (nunique=4) ---
+payment_channel
+card            1216417
+mobile_money     303725
+ussd             303683
+transfer         203066
+
+--- status (nunique=2) ---
+status
+success    1972633
+failed       54258
+
+--- gateway_response (nunique=6) ---
+gateway_response
+Approved              1972633
+Insufficient Funds      13313
+Processing Error        13236
+Issuer Declined         13146
+Do Not Honor            12962
+Timeout                  1601
+
+--- error_code (nunique=6) ---
+error_code
+                      1972633
+insufficient_funds      13313
+processing_error        13236
+issuer_declined         13146
+do_not_honor            12962
+timeout                  1601
+
+--- region (nunique=1) ---
+region
+NG    2026891
+
+--- country (nunique=1) ---
+country
+NG    2026891
+
+================================================================================
+F. NUMERIC DISTRIBUTIONS
+================================================================================
+amount:
+count    2.026891e+06
+mean     7.958230e+02
+std      5.248234e+02
+min      1.000000e+02
+1%       1.640000e+02
+5%       2.470000e+02
+25%      4.430000e+02
+50%      6.640000e+02
+75%      9.970000e+02
+90%      1.434000e+03
+95%      1.785000e+03
+99%      2.685000e+03
+max      1.330500e+04
+Name: amount, dtype: float64
+
+amount negative count: 0, zero count: 0
+
+latency_ms:
+count    2.026891e+06
+mean     5.131892e+02
+std      1.722878e+02
+min      5.000000e+01
+1%       2.217808e+02
+5%       3.040517e+02
+25%      4.214605e+02
+50%      5.037442e+02
+75%      5.878585e+02
+90%      6.686128e+02
+95%      7.250669e+02
+99%      9.935901e+02
+max      6.891136e+03
+Name: latency_ms, dtype: float64
+
+latency_ms negative count: 0, zero count: 0
+latency_ms null count: 0
+
+================================================================================
+G. TEMPORAL RANGE / DENSITY
+================================================================================
+timestamp min: 2025-01-01 00:00:00+00:00, max: 2025-01-07 23:59:00+00:00
+Span: 6 days 23:59:00
+Rows per day:
+timestamp
+2025-01-01 00:00:00+00:00    289529
+2025-01-02 00:00:00+00:00    289272
+2025-01-03 00:00:00+00:00    289111
+2025-01-04 00:00:00+00:00    289117
+2025-01-05 00:00:00+00:00    290565
+2025-01-06 00:00:00+00:00    289681
+2025-01-07 00:00:00+00:00    289616
+Freq: D, dtype: int64
+
+Rows per minute: min=156, median=201.0, mean=201.08, max=255
+
+================================================================================
+H. merchant_id cardinality
+================================================================================
+Distinct merchant_id: 300
+count     300.000000
+mean     6756.303333
+std        80.917428
+min      6540.000000
+25%      6706.000000
+50%      6753.000000
+75%      6803.250000
+max      6986.000000
+Name: count, dtype: float64
+
+Shape summary written to output/routing_dataset_shape.json

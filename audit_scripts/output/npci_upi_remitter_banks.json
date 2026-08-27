@@ -1,0 +1,283 @@
+{
+  "dataset": "npci_upi_remitter_banks",
+  "row_count": 50,
+  "column_count": 8,
+  "duplicate_row_count": 0,
+  "duplicate_row_pct": 0.0,
+  "columns": [
+    "Sr. No.",
+    "UPI Remitter Banks (Sep-2023)",
+    "Total Volume (In Mn)",
+    "Approved %",
+    "BD %",
+    "TD%",
+    "Total Debit Reversal Count (In Mn)",
+    "Debit Reversal Success %"
+  ],
+  "date_like_columns": {},
+  "candidate_primary_keys": [
+    {
+      "column": "Sr. No.",
+      "uniqueness_pct": 100.0
+    },
+    {
+      "column": "UPI Remitter Banks (Sep-2023)",
+      "uniqueness_pct": 100.0
+    },
+    {
+      "column": "Total Volume (In Mn)",
+      "uniqueness_pct": 100.0
+    }
+  ],
+  "column_profiles": [
+    {
+      "column": "Sr. No.",
+      "pandas_dtype": "int64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 50,
+      "unique_pct_of_nonnull": 100.0,
+      "numeric_summary": {
+        "count": 50.0,
+        "mean": 25.5,
+        "std": 14.577379737113251,
+        "min": 1.0,
+        "1%": 1.49,
+        "5%": 3.45,
+        "25%": 13.25,
+        "50%": 25.5,
+        "75%": 37.75,
+        "95%": 47.55,
+        "99%": 49.51,
+        "max": 50.0
+      },
+      "min": 1,
+      "max": 50,
+      "negative_count": 0,
+      "zero_count": 0,
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "UPI Remitter Banks (Sep-2023)",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 50,
+      "unique_pct_of_nonnull": 100.0,
+      "top_values": {
+        "State Bank Of India": 1,
+        "HDFC BANK LTD": 1,
+        "Bank of Baroda": 1,
+        "Union Bank of India": 1,
+        "Punjab National Bank": 1,
+        "ICICI Bank": 1,
+        "Axis Bank Ltd": 1,
+        "Kotak Mahindra Bank": 1,
+        "Canara Bank": 1,
+        "Paytm Payments Bank": 1,
+        "Bank of India": 1,
+        "Indian Bank": 1,
+        "Airtel Payments Bank": 1,
+        "India Post Payment Bank": 1,
+        "Federal Bank": 1
+      },
+      "rare_values_count_1": 50,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        50,
+        50
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "Total Volume (In Mn)",
+      "pandas_dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 50,
+      "unique_pct_of_nonnull": 100.0,
+      "numeric_summary": {
+        "count": 50.0,
+        "mean": 236.785,
+        "std": 454.9595440020699,
+        "min": 12.89,
+        "1%": 13.7524,
+        "5%": 15.9115,
+        "25%": 25.59,
+        "50%": 64.075,
+        "75%": 268.7375,
+        "95%": 733.4744999999999,
+        "99%": 1987.352099999996,
+        "max": 2930.95
+      },
+      "min": 12.89,
+      "max": 2930.95,
+      "negative_count": 0,
+      "zero_count": 0,
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "Approved %",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 49,
+      "unique_pct_of_nonnull": 98.0,
+      "top_values": {
+        "92.15%": 2,
+        "92.62%": 1,
+        "96.26%": 1,
+        "93.72%": 1,
+        "94.43%": 1,
+        "94.44%": 1,
+        "95.69%": 1,
+        "96.43%": 1,
+        "94.24%": 1,
+        "94.48%": 1,
+        "96.35%": 1,
+        "95.79%": 1,
+        "94.93%": 1,
+        "91.12%": 1,
+        "86.20%": 1
+      },
+      "rare_values_count_1": 48,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        49,
+        49
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "BD %",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 46,
+      "unique_pct_of_nonnull": 92.0,
+      "top_values": {
+        "3.55%": 2,
+        "3.65%": 2,
+        "3.91%": 2,
+        "5.57%": 2,
+        "4.45%": 1,
+        "5.11%": 1,
+        "4.16%": 1,
+        "4.82%": 1,
+        "4.94%": 1,
+        "5.09%": 1,
+        "4.91%": 1,
+        "8.63%": 1,
+        "12.46%": 1,
+        "4.55%": 1,
+        "9.57%": 1
+      },
+      "rare_values_count_1": 42,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        46,
+        46
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "TD%",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 46,
+      "unique_pct_of_nonnull": 92.0,
+      "top_values": {
+        "0.74%": 2,
+        "0.00%": 2,
+        "0.22%": 2,
+        "1.99%": 2,
+        "2.93%": 1,
+        "0.20%": 1,
+        "1.17%": 1,
+        "1.41%": 1,
+        "0.66%": 1,
+        "0.01%": 1,
+        "0.81%": 1,
+        "0.43%": 1,
+        "0.29%": 1,
+        "0.16%": 1,
+        "0.25%": 1
+      },
+      "rare_values_count_1": 42,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        46,
+        46
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "Total Debit Reversal Count (In Mn)",
+      "pandas_dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 39,
+      "unique_pct_of_nonnull": 78.0,
+      "numeric_summary": {
+        "count": 50.0,
+        "mean": 1.3695999999999997,
+        "std": 4.156662691955397,
+        "min": 0.0,
+        "1%": 0.0245,
+        "5%": 0.0545,
+        "25%": 0.1125,
+        "50%": 0.32,
+        "75%": 0.9624999999999999,
+        "95%": 3.9504999999999963,
+        "99%": 17.247299999999953,
+        "max": 29.12
+      },
+      "min": 0.0,
+      "max": 29.12,
+      "negative_count": 0,
+      "zero_count": 1,
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "Debit Reversal Success %",
+      "pandas_dtype": "str",
+      "null_count": 1,
+      "null_pct": 2.0,
+      "unique_count": 34,
+      "unique_pct_of_nonnull": 69.3878,
+      "top_values": {
+        "99%": 4,
+        "89%": 3,
+        "85%": 3,
+        "80%": 3,
+        "98%": 3,
+        "96%": 2,
+        "86%": 2,
+        "79%": 2,
+        "64%": 2,
+        "58%": 1,
+        "95%": 1,
+        "73%": 1,
+        "91%": 1,
+        "0%": 1,
+        "81%": 1
+      },
+      "rare_values_count_1": 25,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        34,
+        34
+      ],
+      "placeholder_like_value_count": 0
+    }
+  ],
+  "source_file": "data\\raw\\NPCI Products Statistics Since Launch\\UPI Remitter Banks.csv",
+  "file_size_bytes": 3050,
+  "detected_encoding": "utf-8"
+}

@@ -1,0 +1,181 @@
+{
+  "dataset": "npci_upi_payers_performance_psp",
+  "row_count": 32,
+  "column_count": 6,
+  "duplicate_row_count": 0,
+  "duplicate_row_pct": 0.0,
+  "columns": [
+    "Sr. No.",
+    "Payer PSP",
+    "Total Volume (In Mn)",
+    "Approved %",
+    "BD %",
+    "TD %"
+  ],
+  "date_like_columns": {},
+  "candidate_primary_keys": [],
+  "column_profiles": [
+    {
+      "column": "Sr. No.",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 17,
+      "unique_pct_of_nonnull": 53.125,
+      "looks_numeric_but_stored_as_text": true,
+      "numeric_coverage_pct": 93.75,
+      "non_numeric_sample_values": [
+        "UPI Payee PSP Performance (Oct'23)",
+        "Sr. No."
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "Payer PSP",
+      "pandas_dtype": "str",
+      "null_count": 1,
+      "null_pct": 3.125,
+      "unique_count": 20,
+      "unique_pct_of_nonnull": 64.5161,
+      "top_values": {
+        "Yes Bank Ltd": 2,
+        "Axis Bank Ltd": 2,
+        "ICICI Bank": 2,
+        "Paytm Payments Bank": 2,
+        "HDFC Bank Ltd": 2,
+        "State Bank Of India": 2,
+        "Kotak Mahindra Bank": 2,
+        "Airtel Payments Bank": 2,
+        "Federal Bank": 2,
+        "IDFC FIRST Bank": 2,
+        "RBL Bank": 2,
+        "Fampay (PPI)": 1,
+        "BHIM": 1,
+        "Standard Chartered": 1,
+        "India Post Payment Bank": 1
+      },
+      "rare_values_count_1": 9,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        20,
+        20
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "Total Volume (In Mn)",
+      "pandas_dtype": "str",
+      "null_count": 1,
+      "null_pct": 3.125,
+      "unique_count": 31,
+      "unique_pct_of_nonnull": 100.0,
+      "looks_numeric_but_stored_as_text": true,
+      "numeric_coverage_pct": 96.77,
+      "non_numeric_sample_values": [
+        "Total Volume (In Mn)"
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "Approved %",
+      "pandas_dtype": "str",
+      "null_count": 1,
+      "null_pct": 3.125,
+      "unique_count": 29,
+      "unique_pct_of_nonnull": 93.5484,
+      "top_values": {
+        "98.13%": 2,
+        "99.36%": 2,
+        "98.95%": 1,
+        "98.96%": 1,
+        "99.02%": 1,
+        "98.79%": 1,
+        "99.05%": 1,
+        "98.45%": 1,
+        "98.46%": 1,
+        "95.32%": 1,
+        "98.52%": 1,
+        "99.87%": 1,
+        "98.67%": 1,
+        "98.14%": 1,
+        "98.53%": 1
+      },
+      "rare_values_count_1": 27,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        29,
+        29
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "BD %",
+      "pandas_dtype": "str",
+      "null_count": 1,
+      "null_pct": 3.125,
+      "unique_count": 29,
+      "unique_pct_of_nonnull": 93.5484,
+      "top_values": {
+        "0.13%": 2,
+        "0.51%": 2,
+        "1.04%": 1,
+        "1.03%": 1,
+        "0.98%": 1,
+        "1.21%": 1,
+        "0.95%": 1,
+        "1.55%": 1,
+        "1.54%": 1,
+        "4.67%": 1,
+        "1.47%": 1,
+        "1.81%": 1,
+        "1.87%": 1,
+        "1.31%": 1,
+        "1.86%": 1
+      },
+      "rare_values_count_1": 27,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        29,
+        29
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "TD %",
+      "pandas_dtype": "str",
+      "null_count": 1,
+      "null_pct": 3.125,
+      "unique_count": 13,
+      "unique_pct_of_nonnull": 41.9355,
+      "top_values": {
+        "0.00%": 11,
+        "0.01%": 6,
+        "0.04%": 3,
+        "0.05%": 2,
+        "0.02%": 1,
+        "TD %": 1,
+        "0.10%": 1,
+        "0.81%": 1,
+        "0.13%": 1,
+        "0.28%": 1,
+        "0.64%": 1,
+        "0.38%": 1,
+        "0.27%": 1
+      },
+      "rare_values_count_1": 9,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        13,
+        13
+      ],
+      "placeholder_like_value_count": 0
+    }
+  ],
+  "source_file": "data\\raw\\NPCI Products Statistics Since Launch\\UPI Payers Perforance PSP.csv",
+  "file_size_bytes": 1479,
+  "detected_encoding": "utf-8"
+}

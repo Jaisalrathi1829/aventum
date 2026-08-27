@@ -1,0 +1,173 @@
+================================================================================
+A. FAILURE RATE AND LATENCY BY RAIL_ID (the candidate 'gateway' dimension)
+================================================================================
+         volume  failure_rate_pct  latency_mean  latency_p50  latency_p95  latency_p99
+rail_id                                                                               
+rail_A   535225              1.85        509.41       502.44       715.62       903.36
+rail_B   563382              2.85        513.93       504.00       727.09      1008.10
+rail_C   258667              3.83        518.33       505.62       739.68      1074.79
+rail_D   424304              2.39        512.00       503.14       721.80       961.09
+rail_E   245313              3.40        516.37       504.92       734.52      1048.65
+
+Failure-rate spread across rails: 1.980 points
+Latency p50 spread across rails: 3.18 ms
+
+================================================================================
+B. FAILURE RATE AND LATENCY BY PAYMENT_CHANNEL
+================================================================================
+                  volume  failure_rate_pct  latency_mean  latency_p95
+payment_channel                                                      
+card             1216417              2.69        513.26       725.17
+mobile_money      303725              2.68        513.18       725.62
+transfer          203066              2.66        512.53       724.15
+ussd              303683              2.62        513.35       724.68
+
+================================================================================
+C. FAILURE RATE BY MERCHANT_SEGMENT, and RAIL x CHANNEL cross
+================================================================================
+                  volume  failure_rate_pct
+merchant_segment                          
+ENT               662224             2.683
+MID               736757             2.684
+SME               627910             2.663
+
+                         volume  failure_rate_pct
+rail_id payment_channel                          
+rail_A  card             321295              1.83
+        mobile_money      80000              1.84
+        transfer          53649              1.92
+        ussd              80281              1.88
+rail_B  card             337847              2.91
+        mobile_money      84556              2.78
+        transfer          56483              2.72
+        ussd              84496              2.75
+rail_C  card             154770              3.79
+        mobile_money      38968              3.98
+        transfer          25851              3.99
+        ussd              39078              3.71
+rail_D  card             255118              2.42
+        mobile_money      63261              2.38
+        transfer          42459              2.28
+        ussd              63466              2.34
+rail_E  card             147387              3.41
+        mobile_money      36940              3.46
+        transfer          24624              3.33
+        ussd              36362              3.30
+
+================================================================================
+D. gateway_response <-> error_code <-> status CONSISTENCY CHECK
+================================================================================
+status              failed  success
+gateway_response                   
+Approved                 0  1972633
+Do Not Honor         12962        0
+Insufficient Funds   13313        0
+Issuer Declined      13146        0
+Processing Error     13236        0
+Timeout               1601        0
+
+error_code                   do_not_honor  insufficient_funds  issuer_declined  processing_error  timeout
+gateway_response                                                                                         
+Approved            1972633             0                   0                0                 0        0
+Do Not Honor              0         12962                   0                0                 0        0
+Insufficient Funds        0             0               13313                0                 0        0
+Issuer Declined           0             0                   0            13146                 0        0
+Processing Error          0             0                   0                0             13236        0
+Timeout                   0             0                   0                0                 0     1601
+
+Success rows with gateway_response != 'Approved': 0
+Failed rows with gateway_response == 'Approved': 0
+
+================================================================================
+E. LATENCY BY STATUS / GATEWAY_RESPONSE (is Timeout actually high-latency?)
+================================================================================
+             count    mean     std    min     25%     50%      75%      max
+status                                                                     
+failed     54258.0  989.94  593.52  200.0  736.13  909.69  1086.87  6891.14
+success  1972633.0  500.08  119.94   50.0  419.19  500.07   581.02  1137.42
+
+                        count     mean     std     min      25%      50%      75%      max
+gateway_response                                                                          
+Approved            1972633.0   500.08  119.94    50.0   419.19   500.07   581.02  1137.42
+Do Not Honor          12962.0   899.88  251.21   200.0   729.58   901.66  1068.80  1738.99
+Insufficient Funds    13313.0   900.83  249.02   200.0   732.62   902.38  1069.13  1787.17
+Issuer Declined       13146.0   895.35  248.95   200.0   726.50   895.24  1063.92  1785.72
+Processing Error      13236.0   899.31  249.40   200.0   731.14   900.79  1067.78  1824.02
+Timeout                1601.0  3986.16  799.08  2000.0  3445.79  4019.20  4502.65  6891.14
+
+================================================================================
+F. TEMPORAL PATTERN: hourly failure rate and latency (looking for an organic incident)
+================================================================================
+Hourly failure rate: min=1.963%, median=2.356%, max=8.538%
+Hourly latency mean: min=506.11, median=510.84, max=556.56
+
+Top 10 hours by failure rate:
+                           volume  failure_rate_pct  latency_mean
+timestamp                                                        
+2025-01-06 02:00:00+00:00   12122             8.538       556.559
+2025-01-07 13:00:00+00:00   12041             8.537       551.665
+2025-01-05 15:00:00+00:00   12234             7.937       554.394
+2025-01-03 04:00:00+00:00   11965             6.394       535.440
+2025-01-04 19:00:00+00:00   11889             6.191       536.376
+2025-01-03 05:00:00+00:00   11941             6.172       537.669
+2025-01-02 17:00:00+00:00   12036             5.783       535.128
+2025-01-05 07:00:00+00:00   12099             5.141       527.263
+2025-01-02 10:00:00+00:00   11873             5.138       531.229
+2025-01-01 20:00:00+00:00   11928             5.097       533.152
+
+Top 10 hours by mean latency:
+                           volume  failure_rate_pct  latency_mean
+timestamp                                                        
+2025-01-06 02:00:00+00:00   12122              8.54        556.56
+2025-01-05 15:00:00+00:00   12234              7.94        554.39
+2025-01-07 13:00:00+00:00   12041              8.54        551.67
+2025-01-03 05:00:00+00:00   11941              6.17        537.67
+2025-01-04 19:00:00+00:00   11889              6.19        536.38
+2025-01-03 04:00:00+00:00   11965              6.39        535.44
+2025-01-02 17:00:00+00:00   12036              5.78        535.13
+2025-01-01 23:00:00+00:00   12225              5.04        534.72
+2025-01-01 20:00:00+00:00   11928              5.10        533.15
+2025-01-02 10:00:00+00:00   11873              5.14        531.23
+
+================================================================================
+G. Per-rail hourly failure rate variance (checking for rail-specific time-bounded degradation)
+================================================================================
+rail_A: hourly failure-rate min=1.00%, median=1.52%, max=22.71% (overall mean 1.85%)
+rail_B: hourly failure-rate min=1.90%, median=2.48%, max=25.08% (overall mean 2.85%)
+rail_C: hourly failure-rate min=2.03%, median=3.52%, max=22.95% (overall mean 3.83%)
+rail_D: hourly failure-rate min=1.23%, median=2.01%, max=21.51% (overall mean 2.39%)
+rail_E: hourly failure-rate min=1.97%, median=2.98%, max=25.90% (overall mean 3.40%)
+
+================================================================================
+H. JOIN-KEY TESTING AGAINST upi_transactions_2024
+================================================================================
+Routing dataset transaction_id sample: ['tx_1', 'tx_2', 'tx_3']
+upi_transactions_2024 transaction id sample: ['TXN0000000001', 'TXN0000000002', 'TXN0000000003']
+transaction_id exact overlap: 0
+
+Routing dataset timestamp range: 2025-01-01 00:00:00+00:00 to 2025-01-07 23:59:00+00:00
+upi_transactions_2024 timestamp range: 2024-01-01 00:05:10 to 2024-12-30 23:55:40
+Calendar-date overlap between the two datasets: 0 dates
+
+Routing dataset currency/country context: Nigeria (NG); amount range 100-13305
+upi_transactions_2024 currency/country context: India (INR); amount range 10-42099
+
+Any shared bank/merchant vocabulary?
+Routing dataset merchant_id sample: ['m_0000', 'm_0001', 'm_0002', 'm_0003', 'm_0004']
+upi_transactions_2024 has no merchant_id field (only merchant_category) - confirmed structurally incompatible dimension
+Routing dataset has no bank field at all (rail_id/payment_channel are the closest concepts) - confirmed no shared bank vocabulary
+
+================================================================================
+I. amount unit sanity check (Naira major-unit vs kobo minor-unit plausibility)
+================================================================================
+count    2.026891e+06
+mean     7.958230e+02
+std      5.248234e+02
+min      1.000000e+02
+25%      4.430000e+02
+50%      6.640000e+02
+75%      9.970000e+02
+max      1.330500e+04
+Name: amount, dtype: float64
+If minor-unit (kobo, 1/100 Naira): min tx = NGN 1.00, median = NGN 6.64, max = NGN 133.05 -> implausibly tiny for card/ussd/transfer payments
+If major-unit (Naira): min tx = NGN 100, median = NGN 664, max = NGN 13,305 -> plausible low-to-mid value consumer payments

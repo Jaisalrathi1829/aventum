@@ -1,0 +1,255 @@
+{
+  "dataset": "npci_upi_beneficiary_bank",
+  "row_count": 50,
+  "column_count": 7,
+  "duplicate_row_count": 0,
+  "duplicate_row_pct": 0.0,
+  "columns": [
+    "Sr.No.",
+    "UPI Beneficiary Banks (Sep-2023)",
+    "Total Volume (In Mn)",
+    "Approved %",
+    "BD%",
+    "TD%",
+    "Deemed Approved %"
+  ],
+  "date_like_columns": {},
+  "candidate_primary_keys": [
+    {
+      "column": "Sr.No.",
+      "uniqueness_pct": 100.0
+    },
+    {
+      "column": "UPI Beneficiary Banks (Sep-2023)",
+      "uniqueness_pct": 100.0
+    },
+    {
+      "column": "Total Volume (In Mn)",
+      "uniqueness_pct": 100.0
+    }
+  ],
+  "column_profiles": [
+    {
+      "column": "Sr.No.",
+      "pandas_dtype": "int64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 50,
+      "unique_pct_of_nonnull": 100.0,
+      "numeric_summary": {
+        "count": 50.0,
+        "mean": 25.5,
+        "std": 14.577379737113251,
+        "min": 1.0,
+        "1%": 1.49,
+        "5%": 3.45,
+        "25%": 13.25,
+        "50%": 25.5,
+        "75%": 37.75,
+        "95%": 47.55,
+        "99%": 49.51,
+        "max": 50.0
+      },
+      "min": 1,
+      "max": 50,
+      "negative_count": 0,
+      "zero_count": 0,
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "UPI Beneficiary Banks (Sep-2023)",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 50,
+      "unique_pct_of_nonnull": 100.0,
+      "top_values": {
+        "Paytm Payments Bank": 1,
+        "Yes Bank Ltd": 1,
+        "State Bank Of India": 1,
+        "Axis Bank Ltd.": 1,
+        "ICICI Bank": 1,
+        "HDFC BANK LTD": 1,
+        "Bank of Baroda": 1,
+        "Union Bank of India": 1,
+        "Federal Bank": 1,
+        "Punjab National Bank": 1,
+        "Canara Bank": 1,
+        "Kotak Mahindra Bank": 1,
+        "Bank of India": 1,
+        "Indian Bank": 1,
+        "Airtel Payments Bank": 1
+      },
+      "rare_values_count_1": 50,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        50,
+        50
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "Total Volume (In Mn)",
+      "pandas_dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 50,
+      "unique_pct_of_nonnull": 100.0,
+      "numeric_summary": {
+        "count": 50.0,
+        "mean": 227.02360000000002,
+        "std": 516.5366602148963,
+        "min": 5.26,
+        "1%": 5.9901,
+        "5%": 7.2745,
+        "25%": 13.0075,
+        "50%": 39.620000000000005,
+        "75%": 174.375,
+        "95%": 1010.2324999999989,
+        "99%": 2471.669899999999,
+        "max": 2709.07
+      },
+      "min": 5.26,
+      "max": 2709.07,
+      "negative_count": 0,
+      "zero_count": 0,
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "Approved %",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 46,
+      "unique_pct_of_nonnull": 92.0,
+      "top_values": {
+        "99.87%": 2,
+        "97.26%": 2,
+        "99.28%": 2,
+        "99.44%": 2,
+        "99.94%": 1,
+        "99.73%": 1,
+        "99.39%": 1,
+        "98.09%": 1,
+        "98.97%": 1,
+        "99.65%": 1,
+        "99.04%": 1,
+        "99.24%": 1,
+        "98.74%": 1,
+        "99.23%": 1,
+        "98.36%": 1
+      },
+      "rare_values_count_1": 42,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        46,
+        46
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "BD%",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 39,
+      "unique_pct_of_nonnull": 78.0,
+      "top_values": {
+        "0.24%": 3,
+        "0.50%": 2,
+        "0.64%": 2,
+        "0.46%": 2,
+        "0.40%": 2,
+        "0.80%": 2,
+        "1.07%": 2,
+        "0.33%": 2,
+        "0.34%": 2,
+        "0.41%": 2,
+        "0.11%": 1,
+        "0.02%": 1,
+        "0.28%": 1,
+        "0.22%": 1,
+        "0.49%": 1
+      },
+      "rare_values_count_1": 29,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        39,
+        39
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "TD%",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 44,
+      "unique_pct_of_nonnull": 88.0,
+      "top_values": {
+        "0.10%": 2,
+        "0.18%": 2,
+        "0.32%": 2,
+        "0.08%": 2,
+        "0.19%": 2,
+        "1.51%": 2,
+        "0.02%": 1,
+        "0.03%": 1,
+        "2.46%": 1,
+        "0.05%": 1,
+        "0.23%": 1,
+        "0.11%": 1,
+        "1.07%": 1,
+        "0.80%": 1,
+        "0.04%": 1
+      },
+      "rare_values_count_1": 38,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        44,
+        44
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "Deemed Approved %",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 30,
+      "unique_pct_of_nonnull": 60.0,
+      "top_values": {
+        "0.00%": 4,
+        "0.03%": 4,
+        "0.17%": 4,
+        "0.08%": 3,
+        "0.10%": 3,
+        "0.06%": 2,
+        "0.22%": 2,
+        "0.13%": 2,
+        "0.30%": 2,
+        "0.04%": 2,
+        "0.05%": 2,
+        "0.14%": 2,
+        "0.41%": 1,
+        "0.16%": 1,
+        "0.15%": 1
+      },
+      "rare_values_count_1": 18,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        30,
+        30
+      ],
+      "placeholder_like_value_count": 0
+    }
+  ],
+  "source_file": "data\\raw\\NPCI Products Statistics Since Launch\\UPI Beneficiary Bank.csv",
+  "file_size_bytes": 2863,
+  "detected_encoding": "utf-8"
+}

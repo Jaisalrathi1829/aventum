@@ -1,0 +1,72 @@
+Per-rail: hour of max failure rate, and what other rails looked like at that same hour
+
+rail_A: worst hour = 2025-01-05 15:00:00+00:00, failure_rate=22.71%, volume=3206
+         volume  failures  failure_rate_pct
+rail_id                                    
+rail_A     3206       728             22.71
+rail_B     3375        92              2.73
+rail_C     1550        55              3.55
+rail_D     2576        57              2.21
+rail_E     1527        39              2.55
+
+rail_B: worst hour = 2025-01-06 02:00:00+00:00, failure_rate=25.08%, volume=3365
+         volume  failures  failure_rate_pct
+rail_id                                    
+rail_A     3247        33              1.02
+rail_B     3365       844             25.08
+rail_C     1500        57              3.80
+rail_D     2544        52              2.04
+rail_E     1466        49              3.34
+
+rail_C: worst hour = 2025-01-05 07:00:00+00:00, failure_rate=22.95%, volume=1582
+         volume  failures  failure_rate_pct
+rail_id                                    
+rail_A     3249        67              2.06
+rail_B     3318        81              2.44
+rail_C     1582       363             22.95
+rail_D     2512        55              2.19
+rail_E     1438        56              3.89
+
+rail_D: worst hour = 2025-01-03 04:00:00+00:00, failure_rate=21.51%, volume=2483
+         volume  failures  failure_rate_pct
+rail_id                                    
+rail_A     3129        55              1.76
+rail_B     3291        84              2.55
+rail_C     1590        52              3.27
+rail_D     2483       534             21.51
+rail_E     1472        40              2.72
+
+rail_E: worst hour = 2025-01-02 10:00:00+00:00, failure_rate=25.90%, volume=1452
+         volume  failures  failure_rate_pct
+rail_id                                    
+rail_A     3062        48              1.57
+rail_B     3277        85              2.59
+rail_C     1560        56              3.59
+rail_D     2522        45              1.78
+rail_E     1452       376             25.90
+
+=== Spike hours per rail (>3x that rail's own median hourly failure rate) ===
+rail_A: median=1.52%, threshold(3x)=4.55%, spike hours=5 of 168
+    2025-01-01 19:00:00+00:00  failure_rate=5.92%  volume=3126
+    2025-01-01 20:00:00+00:00  failure_rate=12.76%  volume=3143
+    2025-01-02 16:00:00+00:00  failure_rate=9.61%  volume=3110
+    2025-01-02 17:00:00+00:00  failure_rate=14.85%  volume=3118
+    2025-01-05 15:00:00+00:00  failure_rate=22.71%  volume=3206
+rail_B: median=2.48%, threshold(3x)=7.45%, spike hours=3 of 168
+    2025-01-03 05:00:00+00:00  failure_rate=15.90%  volume=3389
+    2025-01-06 02:00:00+00:00  failure_rate=25.08%  volume=3365
+    2025-01-07 13:00:00+00:00  failure_rate=23.61%  volume=3376
+rail_C: median=3.52%, threshold(3x)=10.55%, spike hours=3 of 168
+    2025-01-02 15:00:00+00:00  failure_rate=16.16%  volume=1584
+    2025-01-05 07:00:00+00:00  failure_rate=22.95%  volume=1582
+    2025-01-07 19:00:00+00:00  failure_rate=18.05%  volume=1529
+rail_D: median=2.01%, threshold(3x)=6.04%, spike hours=5 of 168
+    2025-01-01 23:00:00+00:00  failure_rate=16.57%  volume=2468
+    2025-01-02 00:00:00+00:00  failure_rate=8.22%  volume=2505
+    2025-01-03 03:00:00+00:00  failure_rate=6.99%  volume=2491
+    2025-01-03 04:00:00+00:00  failure_rate=21.51%  volume=2483
+    2025-01-04 19:00:00+00:00  failure_rate=20.02%  volume=2438
+rail_E: median=2.98%, threshold(3x)=8.93%, spike hours=3 of 168
+    2025-01-02 10:00:00+00:00  failure_rate=25.90%  volume=1452
+    2025-01-04 05:00:00+00:00  failure_rate=24.95%  volume=1443
+    2025-01-07 17:00:00+00:00  failure_rate=20.05%  volume=1456

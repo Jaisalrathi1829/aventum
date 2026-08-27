@@ -1,0 +1,113 @@
+{
+  "dataset": "npci_star99_statistics",
+  "row_count": 91,
+  "column_count": 4,
+  "duplicate_row_count": 0,
+  "duplicate_row_pct": 0.0,
+  "columns": [
+    "Month",
+    "No. of Banks live on *99#",
+    "Volume (Mn)",
+    "Value (in Cr)"
+  ],
+  "date_like_columns": {},
+  "candidate_primary_keys": [],
+  "column_profiles": [
+    {
+      "column": "Month",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 90,
+      "unique_pct_of_nonnull": 98.9011,
+      "top_values": {
+        "19-Oct": 2,
+        "16-Apr": 1,
+        "16-May": 1,
+        "16-Jun": 1,
+        "16-Jul": 1,
+        "16-Aug": 1,
+        "16-Sep": 1,
+        "16-Oct": 1,
+        "16-Nov": 1,
+        "16-Dec": 1,
+        "17-Jan": 1,
+        "17-Feb": 1,
+        "17-Mar": 1,
+        "17-Apr": 1,
+        "17-May": 1
+      },
+      "rare_values_count_1": 89,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        90,
+        90
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "No. of Banks live on *99#",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 14,
+      "unique_pct_of_nonnull": 15.3846,
+      "top_values": {
+        "83": 37,
+        "-": 22,
+        "86": 11,
+        "80": 5,
+        "82": 4,
+        "78": 3,
+        "106": 2,
+        "70": 1,
+        "71": 1,
+        "73": 1,
+        "74": 1,
+        "75": 1,
+        "79": 1,
+        "87": 1
+      },
+      "rare_values_count_1": 7,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        14,
+        14
+      ],
+      "placeholder_like_value_count": 22
+    },
+    {
+      "column": "Volume (Mn)",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 21,
+      "unique_pct_of_nonnull": 23.0769,
+      "looks_numeric_but_stored_as_text": true,
+      "numeric_coverage_pct": 91.21,
+      "non_numeric_sample_values": [
+        "-"
+      ],
+      "placeholder_like_value_count": 8
+    },
+    {
+      "column": "Value (in Cr)",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 80,
+      "unique_pct_of_nonnull": 87.9121,
+      "looks_numeric_but_stored_as_text": true,
+      "numeric_coverage_pct": 91.21,
+      "non_numeric_sample_values": [
+        "-"
+      ],
+      "placeholder_like_value_count": 8
+    }
+  ],
+  "source_file": "data\\raw\\NPCI Products Statistics Since Launch\\PS99.xlsx.csv",
+  "file_size_bytes": 1959,
+  "detected_encoding": "utf-8"
+}

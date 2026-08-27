@@ -1,0 +1,50 @@
+{
+  "rows": 2026891,
+  "columns": 14,
+  "distinct_transaction_id": 2026891,
+  "distinct_reference": 2026891,
+  "distinct_merchant_id": 300,
+  "distinct_rail_id": 5,
+  "rail_id_values": [
+    "rail_A",
+    "rail_B",
+    "rail_C",
+    "rail_D",
+    "rail_E"
+  ],
+  "distinct_payment_channel": 4,
+  "payment_channel_values": [
+    "card",
+    "mobile_money",
+    "transfer",
+    "ussd"
+  ],
+  "distinct_status": [
+    "failed",
+    "success"
+  ],
+  "distinct_gateway_response": [
+    "Approved",
+    "Do Not Honor",
+    "Insufficient Funds",
+    "Issuer Declined",
+    "Processing Error",
+    "Timeout"
+  ],
+  "distinct_error_code": [
+    "",
+    "do_not_honor",
+    "insufficient_funds",
+    "issuer_declined",
+    "processing_error",
+    "timeout"
+  ],
+  "distinct_region": [
+    "NG"
+  ],
+  "distinct_country": [
+    "NG"
+  ],
+  "timestamp_min": "2025-01-01 00:00:00+00:00",
+  "timestamp_max": "2025-01-07 23:59:00+00:00"
+}

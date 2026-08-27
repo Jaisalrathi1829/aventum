@@ -1,0 +1,486 @@
+{
+  "dataset": "upi_transactions_2024",
+  "row_count": 250000,
+  "column_count": 17,
+  "duplicate_row_count": 0,
+  "duplicate_row_pct": 0.0,
+  "columns": [
+    "transaction id",
+    "timestamp",
+    "transaction type",
+    "merchant_category",
+    "amount (INR)",
+    "transaction_status",
+    "sender_age_group",
+    "receiver_age_group",
+    "sender_state",
+    "sender_bank",
+    "receiver_bank",
+    "device_type",
+    "network_type",
+    "fraud_flag",
+    "hour_of_day",
+    "day_of_week",
+    "is_weekend"
+  ],
+  "date_like_columns": {
+    "timestamp": {
+      "coverage_pct": 100.0,
+      "min": "2024-01-01T00:05:10",
+      "max": "2024-12-30T23:55:40"
+    }
+  },
+  "candidate_primary_keys": [
+    {
+      "column": "transaction id",
+      "uniqueness_pct": 100.0
+    },
+    {
+      "column": "timestamp",
+      "uniqueness_pct": 99.444
+    }
+  ],
+  "column_profiles": [
+    {
+      "column": "transaction id",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 250000,
+      "unique_pct_of_nonnull": 100.0,
+      "top_values": {
+        "TXN0000000001": 1,
+        "TXN0000000002": 1,
+        "TXN0000000003": 1,
+        "TXN0000000004": 1,
+        "TXN0000000005": 1,
+        "TXN0000000006": 1,
+        "TXN0000000007": 1,
+        "TXN0000000008": 1,
+        "TXN0000000009": 1,
+        "TXN0000000010": 1,
+        "TXN0000000011": 1,
+        "TXN0000000012": 1,
+        "TXN0000000013": 1,
+        "TXN0000000014": 1,
+        "TXN0000000015": 1
+      },
+      "rare_values_count_1": 250000,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        250000,
+        250000
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "timestamp",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 248610,
+      "unique_pct_of_nonnull": 99.444,
+      "top_values": {
+        "2024-09-19 12:40:40": 3,
+        "2024-05-16 20:14:31": 3,
+        "2024-07-23 21:31:06": 3,
+        "2024-12-25 18:15:15": 3,
+        "2024-07-11 15:45:15": 3,
+        "2024-05-11 16:47:57": 2,
+        "2024-11-06 12:39:26": 2,
+        "2024-09-20 21:57:45": 2,
+        "2024-11-13 19:13:47": 2,
+        "2024-09-07 10:25:37": 2,
+        "2024-01-01 09:39:46": 2,
+        "2024-06-24 13:36:21": 2,
+        "2024-12-12 21:12:32": 2,
+        "2024-12-08 12:02:05": 2,
+        "2024-02-26 10:56:38": 2
+      },
+      "rare_values_count_1": 247225,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        248610,
+        248610
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "transaction type",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 4,
+      "unique_pct_of_nonnull": 0.0016,
+      "top_values": {
+        "P2P": 112445,
+        "P2M": 87660,
+        "Bill Payment": 37368,
+        "Recharge": 12527
+      },
+      "rare_values_count_1": 0,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        4,
+        4
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "merchant_category",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 10,
+      "unique_pct_of_nonnull": 0.004,
+      "top_values": {
+        "Grocery": 49966,
+        "Food": 37464,
+        "Shopping": 29872,
+        "Fuel": 25063,
+        "Other": 24828,
+        "Utilities": 22338,
+        "Transport": 20105,
+        "Entertainment": 20103,
+        "Healthcare": 12663,
+        "Education": 7598
+      },
+      "rare_values_count_1": 0,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        10,
+        10
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "amount (INR)",
+      "pandas_dtype": "int64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 10355,
+      "unique_pct_of_nonnull": 4.142,
+      "numeric_summary": {
+        "count": 250000.0,
+        "mean": 1311.756036,
+        "std": 1848.059224295897,
+        "min": 10.0,
+        "1%": 48.0,
+        "5%": 97.0,
+        "25%": 288.0,
+        "50%": 629.0,
+        "75%": 1596.0,
+        "95%": 4687.049999999988,
+        "99%": 9003.01000000001,
+        "max": 42099.0
+      },
+      "min": 10,
+      "max": 42099,
+      "negative_count": 0,
+      "zero_count": 0,
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "transaction_status",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 2,
+      "unique_pct_of_nonnull": 0.0008,
+      "top_values": {
+        "SUCCESS": 237624,
+        "FAILED": 12376
+      },
+      "rare_values_count_1": 0,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        2,
+        2
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "sender_age_group",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 5,
+      "unique_pct_of_nonnull": 0.002,
+      "top_values": {
+        "26-35": 87432,
+        "36-45": 62873,
+        "18-25": 62345,
+        "46-55": 24841,
+        "56+": 12509
+      },
+      "rare_values_count_1": 0,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        5,
+        5
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "receiver_age_group",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 5,
+      "unique_pct_of_nonnull": 0.002,
+      "top_values": {
+        "26-35": 87864,
+        "18-25": 62611,
+        "36-45": 62151,
+        "46-55": 24823,
+        "56+": 12551
+      },
+      "rare_values_count_1": 0,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        5,
+        5
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "sender_state",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 10,
+      "unique_pct_of_nonnull": 0.004,
+      "top_values": {
+        "Maharashtra": 37427,
+        "Uttar Pradesh": 30125,
+        "Karnataka": 29756,
+        "Tamil Nadu": 25367,
+        "Delhi": 24870,
+        "Telangana": 22435,
+        "Gujarat": 20061,
+        "Andhra Pradesh": 20006,
+        "Rajasthan": 19981,
+        "West Bengal": 19972
+      },
+      "rare_values_count_1": 0,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        10,
+        10
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "sender_bank",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 8,
+      "unique_pct_of_nonnull": 0.0032,
+      "top_values": {
+        "SBI": 62693,
+        "HDFC": 37485,
+        "ICICI": 29769,
+        "IndusInd": 25173,
+        "Axis": 25042,
+        "PNB": 24946,
+        "Yes Bank": 24860,
+        "Kotak": 20032
+      },
+      "rare_values_count_1": 0,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        8,
+        8
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "receiver_bank",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 8,
+      "unique_pct_of_nonnull": 0.0032,
+      "top_values": {
+        "SBI": 62378,
+        "HDFC": 37651,
+        "ICICI": 29944,
+        "IndusInd": 25086,
+        "Yes Bank": 25009,
+        "Axis": 24992,
+        "PNB": 24802,
+        "Kotak": 20138
+      },
+      "rare_values_count_1": 0,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        8,
+        8
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "device_type",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 3,
+      "unique_pct_of_nonnull": 0.0012,
+      "top_values": {
+        "Android": 187777,
+        "iOS": 49613,
+        "Web": 12610
+      },
+      "rare_values_count_1": 0,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        3,
+        3
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "network_type",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 4,
+      "unique_pct_of_nonnull": 0.0016,
+      "top_values": {
+        "4G": 149813,
+        "5G": 62582,
+        "WiFi": 25134,
+        "3G": 12471
+      },
+      "rare_values_count_1": 0,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        4,
+        4
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "fraud_flag",
+      "pandas_dtype": "int64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 2,
+      "unique_pct_of_nonnull": 0.0008,
+      "numeric_summary": {
+        "count": 250000.0,
+        "mean": 0.00192,
+        "std": 0.0437758068490469,
+        "min": 0.0,
+        "1%": 0.0,
+        "5%": 0.0,
+        "25%": 0.0,
+        "50%": 0.0,
+        "75%": 0.0,
+        "95%": 0.0,
+        "99%": 0.0,
+        "max": 1.0
+      },
+      "min": 0,
+      "max": 1,
+      "negative_count": 0,
+      "zero_count": 249520,
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "hour_of_day",
+      "pandas_dtype": "int64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 24,
+      "unique_pct_of_nonnull": 0.0096,
+      "numeric_summary": {
+        "count": 250000.0,
+        "mean": 14.681032,
+        "std": 5.1883036812581,
+        "min": 0.0,
+        "1%": 0.0,
+        "5%": 6.0,
+        "25%": 11.0,
+        "50%": 15.0,
+        "75%": 19.0,
+        "95%": 22.0,
+        "99%": 23.0,
+        "max": 23.0
+      },
+      "min": 0,
+      "max": 23,
+      "negative_count": 0,
+      "zero_count": 3388,
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "day_of_week",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 7,
+      "unique_pct_of_nonnull": 0.0028,
+      "top_values": {
+        "Monday": 36495,
+        "Sunday": 36003,
+        "Wednesday": 35700,
+        "Tuesday": 35540,
+        "Friday": 35496,
+        "Thursday": 35432,
+        "Saturday": 35334
+      },
+      "rare_values_count_1": 0,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        7,
+        7
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "is_weekend",
+      "pandas_dtype": "int64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 2,
+      "unique_pct_of_nonnull": 0.0008,
+      "numeric_summary": {
+        "count": 250000.0,
+        "mean": 0.285348,
+        "std": 0.45158092807085914,
+        "min": 0.0,
+        "1%": 0.0,
+        "5%": 0.0,
+        "25%": 0.0,
+        "50%": 0.0,
+        "75%": 1.0,
+        "95%": 1.0,
+        "99%": 1.0,
+        "max": 1.0
+      },
+      "min": 0,
+      "max": 1,
+      "negative_count": 0,
+      "zero_count": 178663,
+      "placeholder_like_value_count": 0
+    }
+  ],
+  "source_file": "data\\raw\\UPI Transactions 2024 Dataset\\upi_transactions_2024.csv",
+  "file_size_bytes": 29811789,
+  "detected_encoding": "utf-8"
+}

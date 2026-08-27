@@ -1,0 +1,365 @@
+{
+  "dataset": "npci_year_wise_digital_transaction",
+  "row_count": 5,
+  "column_count": 11,
+  "duplicate_row_count": 0,
+  "duplicate_row_pct": 0.0,
+  "columns": [
+    "Financial Year",
+    "Volume (in Crore) - Cards",
+    "Volume (in Crore) - UPI",
+    "Volume (in Crore) - IMPS",
+    "Volume (in Crore) - RTGS",
+    "Volume (in Crore) - NEFT",
+    "Value (in Lakh Crore) - Cards",
+    "Value (in Lakh Crore) - UPI",
+    "Value (in Lakh Crore) - IMPS",
+    "Value (in Lakh Crore) - RTGS",
+    "Value (in Lakh Crore) - NEFT"
+  ],
+  "date_like_columns": {},
+  "candidate_primary_keys": [
+    {
+      "column": "Financial Year",
+      "uniqueness_pct": 100.0
+    },
+    {
+      "column": "Volume (in Crore) - Cards",
+      "uniqueness_pct": 100.0
+    },
+    {
+      "column": "Volume (in Crore) - UPI",
+      "uniqueness_pct": 100.0
+    },
+    {
+      "column": "Volume (in Crore) - IMPS",
+      "uniqueness_pct": 100.0
+    },
+    {
+      "column": "Volume (in Crore) - RTGS",
+      "uniqueness_pct": 100.0
+    },
+    {
+      "column": "Volume (in Crore) - NEFT",
+      "uniqueness_pct": 100.0
+    },
+    {
+      "column": "Value (in Lakh Crore) - Cards",
+      "uniqueness_pct": 100.0
+    },
+    {
+      "column": "Value (in Lakh Crore) - UPI",
+      "uniqueness_pct": 100.0
+    },
+    {
+      "column": "Value (in Lakh Crore) - IMPS",
+      "uniqueness_pct": 100.0
+    },
+    {
+      "column": "Value (in Lakh Crore) - RTGS",
+      "uniqueness_pct": 100.0
+    },
+    {
+      "column": "Value (in Lakh Crore) - NEFT",
+      "uniqueness_pct": 100.0
+    }
+  ],
+  "column_profiles": [
+    {
+      "column": "Financial Year",
+      "pandas_dtype": "str",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 5,
+      "unique_pct_of_nonnull": 100.0,
+      "top_values": {
+        "2018 - 19": 1,
+        "2019 - 20": 1,
+        "2020 - 21": 1,
+        "2021 \u2013 22": 1,
+        "2022 - 23 (till Jan)": 1
+      },
+      "rare_values_count_1": 5,
+      "has_leading_trailing_whitespace": false,
+      "casing_collapses_categories": false,
+      "distinct_raw_vs_lowercased": [
+        5,
+        5
+      ],
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "Volume (in Crore) - Cards",
+      "pandas_dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 5,
+      "unique_pct_of_nonnull": 100.0,
+      "numeric_summary": {
+        "count": 5.0,
+        "mean": 718.8460000000001,
+        "std": 73.62747707208227,
+        "min": 664.19,
+        "1%": 664.5120000000001,
+        "5%": 665.8000000000001,
+        "25%": 672.24,
+        "50%": 675.42,
+        "75%": 745.52,
+        "95%": 818.592,
+        "99%": 833.2064,
+        "max": 836.86
+      },
+      "min": 664.19,
+      "max": 836.86,
+      "negative_count": 0,
+      "zero_count": 0,
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "Volume (in Crore) - UPI",
+      "pandas_dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 5,
+      "unique_pct_of_nonnull": 100.0,
+      "numeric_summary": {
+        "count": 5.0,
+        "mean": 3073.736,
+        "std": 2565.200680440031,
+        "min": 535.34,
+        "1%": 564.0008,
+        "5%": 678.644,
+        "25%": 1251.86,
+        "50%": 2233.07,
+        "75%": 4595.61,
+        "95%": 6321.362,
+        "99%": 6666.5124000000005,
+        "max": 6752.8
+      },
+      "min": 535.34,
+      "max": 6752.8,
+      "negative_count": 0,
+      "zero_count": 0,
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "Volume (in Crore) - IMPS",
+      "pandas_dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 5,
+      "unique_pct_of_nonnull": 100.0,
+      "numeric_summary": {
+        "count": 5.0,
+        "mean": 339.62199999999996,
+        "std": 129.49455266535347,
+        "min": 175.29,
+        "1%": 178.59439999999998,
+        "5%": 191.81199999999998,
+        "25%": 257.9,
+        "50%": 327.83,
+        "75%": 466.25,
+        "95%": 469.92199999999997,
+        "99%": 470.65639999999996,
+        "max": 470.84
+      },
+      "min": 175.29,
+      "max": 470.84,
+      "negative_count": 0,
+      "zero_count": 0,
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "Volume (in Crore) - RTGS",
+      "pandas_dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 5,
+      "unique_pct_of_nonnull": 100.0,
+      "numeric_summary": {
+        "count": 5.0,
+        "mean": 17.04,
+        "std": 3.0822151125448722,
+        "min": 13.66,
+        "1%": 13.7164,
+        "5%": 13.942,
+        "25%": 15.07,
+        "50%": 15.92,
+        "75%": 19.77,
+        "95%": 20.578,
+        "99%": 20.7396,
+        "max": 20.78
+      },
+      "min": 13.66,
+      "max": 20.78,
+      "negative_count": 0,
+      "zero_count": 0,
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "Volume (in Crore) - NEFT",
+      "pandas_dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 5,
+      "unique_pct_of_nonnull": 100.0,
+      "numeric_summary": {
+        "count": 5.0,
+        "mean": 324.09399999999994,
+        "std": 88.70303281173648,
+        "min": 231.89,
+        "1%": 232.5424,
+        "5%": 235.152,
+        "25%": 248.2,
+        "50%": 309.28,
+        "75%": 404.07,
+        "95%": 422.438,
+        "99%": 426.11159999999995,
+        "max": 427.03
+      },
+      "min": 231.89,
+      "max": 427.03,
+      "negative_count": 0,
+      "zero_count": 0,
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "Value (in Lakh Crore) - Cards",
+      "pandas_dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 5,
+      "unique_pct_of_nonnull": 100.0,
+      "numeric_summary": {
+        "count": 5.0,
+        "mean": 15.494,
+        "std": 2.6901356843103654,
+        "min": 12.25,
+        "1%": 12.2948,
+        "5%": 12.474,
+        "25%": 13.37,
+        "50%": 15.68,
+        "75%": 17.61,
+        "95%": 18.369999999999997,
+        "99%": 18.522,
+        "max": 18.56
+      },
+      "min": 12.25,
+      "max": 18.56,
+      "negative_count": 0,
+      "zero_count": 0,
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "Value (in Lakh Crore) - UPI",
+      "pandas_dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 5,
+      "unique_pct_of_nonnull": 100.0,
+      "numeric_summary": {
+        "count": 5.0,
+        "mean": 53.604,
+        "std": 43.70693686361468,
+        "min": 8.77,
+        "1%": 9.272,
+        "5%": 11.28,
+        "25%": 21.32,
+        "50%": 41.03,
+        "75%": 84.16,
+        "95%": 107.02399999999999,
+        "99%": 111.59679999999999,
+        "max": 112.74
+      },
+      "min": 8.77,
+      "max": 112.74,
+      "negative_count": 0,
+      "zero_count": 0,
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "Value (in Lakh Crore) - IMPS",
+      "pandas_dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 5,
+      "unique_pct_of_nonnull": 100.0,
+      "numeric_summary": {
+        "count": 5.0,
+        "mean": 31.218000000000007,
+        "std": 12.442984770544406,
+        "min": 15.9,
+        "1%": 16.198800000000002,
+        "5%": 17.394000000000002,
+        "25%": 23.37,
+        "50%": 29.41,
+        "75%": 41.71,
+        "95%": 44.902,
+        "99%": 45.540400000000005,
+        "max": 45.7
+      },
+      "min": 15.9,
+      "max": 45.7,
+      "negative_count": 0,
+      "zero_count": 0,
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "Value (in Lakh Crore) - RTGS",
+      "pandas_dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 5,
+      "unique_pct_of_nonnull": 100.0,
+      "numeric_summary": {
+        "count": 5.0,
+        "mean": 1364.966,
+        "std": 264.61341109248406,
+        "min": 1055.99,
+        "1%": 1062.458,
+        "5%": 1088.33,
+        "25%": 1217.69,
+        "50%": 1286.57,
+        "75%": 1549.06,
+        "95%": 1682.2279999999998,
+        "99%": 1708.8616,
+        "max": 1715.52
+      },
+      "min": 1055.99,
+      "max": 1715.52,
+      "negative_count": 0,
+      "zero_count": 0,
+      "placeholder_like_value_count": 0
+    },
+    {
+      "column": "Value (in Lakh Crore) - NEFT",
+      "pandas_dtype": "float64",
+      "null_count": 0,
+      "null_pct": 0.0,
+      "unique_count": 5,
+      "unique_pct_of_nonnull": 100.0,
+      "numeric_summary": {
+        "count": 5.0,
+        "mean": 253.57600000000002,
+        "std": 26.051745239043008,
+        "min": 227.94,
+        "1%": 228.0008,
+        "5%": 228.244,
+        "25%": 229.46,
+        "50%": 251.3,
+        "75%": 271.93,
+        "95%": 284.186,
+        "99%": 286.6372,
+        "max": 287.25
+      },
+      "min": 227.94,
+      "max": 287.25,
+      "negative_count": 0,
+      "zero_count": 0,
+      "placeholder_like_value_count": 0
+    }
+  ],
+  "source_file": "data\\raw\\NPCI Products Statistics Since Launch\\Year wise Digital Transaction.csv",
+  "file_size_bytes": 685,
+  "detected_encoding": "cp1252 (utf-8 decode failed)"
+}

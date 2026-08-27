@@ -1,0 +1,501 @@
+transaction_id,date,time,amount,merchant_category,payment_mode,location_type,is_successful
+TXN100000,2024-09-13,22:02,1399.65,Fuel,QR,Rural,No
+TXN100001,2024-12-06,11:00,3250.0,Groceries,QR,Urban,Yes
+TXN100002,2024-05-12,14:53,241.22,Online Services,Contact,Rural,No
+TXN100003,2024-02-17,22:22,3268.35,Food & Dining,Online,Semi-Urban,Yes
+TXN100004,2024-06-18,00:11,879.46,Groceries,Contact,Rural,No
+TXN100005,2024-11-08,23:37,2072.11,Health & Pharmacy,QR,Semi-Urban,Yes
+TXN100006,2024-07-31,09:24,4396.65,Travel,Online,Rural,No
+TXN100007,2024-08-19,22:13,302.59,Shopping,Online,Rural,Yes
+TXN100008,2024-04-04,08:57,3510.62,Fuel,Online,Semi-Urban,No
+TXN100009,2024-09-28,03:22,3566.82,Other,Online,Semi-Urban,No
+TXN100010,2024-04-23,11:40,2191.89,Entertainment,Contact,Semi-Urban,No
+TXN100011,2024-11-23,23:51,656.67,Travel,Contact,Urban,No
+TXN100012,2024-06-04,13:46,3040.92,Other,Online,Urban,No
+TXN100013,2024-04-01,23:51,1930.19,Other,Online,Rural,No
+TXN100014,2024-05-02,17:45,2183.55,Online Services,QR,Urban,No
+TXN100015,2024-07-28,14:25,2315.58,Shopping,Online,Semi-Urban,No
+TXN100016,2024-03-30,00:33,4928.6,Other,Online,Urban,Yes
+TXN100017,2024-12-12,01:52,3628.99,Entertainment,Contact,Rural,No
+TXN100018,2024-08-07,16:52,4001.33,Online Services,Contact,Rural,Yes
+TXN100019,2024-02-03,20:00,3680.84,Online Services,Contact,Urban,Yes
+TXN100020,2024-11-09,15:05,2663.16,Food & Dining,QR,Semi-Urban,No
+TXN100021,2024-03-22,08:27,3905.33,Fuel,Online,Rural,Yes
+TXN100022,2024-01-01,16:12,4505.8,Shopping,Online,Semi-Urban,No
+TXN100023,2024-01-24,10:30,1081.9,Other,Contact,Rural,No
+TXN100024,2024-02-20,23:50,681.18,Fuel,AutoPay,Semi-Urban,Yes
+TXN100025,2024-07-11,11:28,169.96,Online Services,QR,Urban,No
+TXN100026,2024-11-05,12:04,4734.66,Bills & Utilities,Online,Semi-Urban,No
+TXN100027,2024-12-12,14:32,2351.82,Food & Dining,AutoPay,Urban,No
+TXN100028,2024-03-16,11:45,4808.83,Shopping,AutoPay,Rural,Yes
+TXN100029,2024-08-16,02:58,3197.47,Other,Online,Rural,No
+TXN100030,2024-05-12,18:51,1734.73,Online Services,AutoPay,Semi-Urban,No
+TXN100031,2024-09-18,13:06,4025.76,Entertainment,QR,Rural,No
+TXN100032,2024-08-08,14:12,517.85,Entertainment,AutoPay,Rural,Yes
+TXN100033,2024-07-01,00:32,4062.28,Groceries,QR,Rural,Yes
+TXN100034,2024-04-06,13:06,1806.67,Fuel,QR,Rural,No
+TXN100035,2024-01-26,23:23,876.54,Entertainment,Contact,Urban,No
+TXN100036,2024-03-02,00:15,809.56,Groceries,QR,Semi-Urban,No
+TXN100037,2024-05-14,17:09,193.42,Other,Contact,Urban,Yes
+TXN100038,2024-02-03,21:10,1153.84,Travel,Online,Rural,No
+TXN100039,2024-11-12,12:45,1072.28,Health & Pharmacy,QR,Semi-Urban,Yes
+TXN100040,2024-02-16,06:56,3892.99,Entertainment,QR,Semi-Urban,Yes
+TXN100041,2024-04-21,10:33,4804.58,Food & Dining,AutoPay,Urban,Yes
+TXN100042,2024-06-27,06:57,33.11,Health & Pharmacy,Contact,Urban,No
+TXN100043,2024-09-28,13:26,4382.0,Groceries,QR,Rural,No
+TXN100044,2024-03-25,17:38,4973.82,Travel,QR,Urban,Yes
+TXN100045,2024-12-10,23:41,870.19,Travel,Contact,Urban,Yes
+TXN100046,2024-05-24,14:42,2180.08,Groceries,QR,Semi-Urban,Yes
+TXN100047,2024-08-03,18:16,1072.93,Groceries,Online,Urban,Yes
+TXN100048,2024-07-01,14:03,665.52,Food & Dining,Contact,Urban,No
+TXN100049,2024-12-16,00:30,3592.78,Online Services,Online,Semi-Urban,Yes
+TXN100050,2024-06-06,09:43,4122.68,Shopping,AutoPay,Rural,No
+TXN100051,2024-01-10,22:00,4145.39,Online Services,QR,Semi-Urban,Yes
+TXN100052,2024-02-09,14:36,3687.16,Shopping,QR,Rural,Yes
+TXN100053,2024-03-31,09:09,1395.93,Online Services,AutoPay,Rural,Yes
+TXN100054,2024-04-04,21:30,535.34,Bills & Utilities,Contact,Urban,Yes
+TXN100055,2024-05-30,23:22,24.25,Health & Pharmacy,QR,Semi-Urban,No
+TXN100056,2024-08-28,18:52,723.54,Food & Dining,Contact,Semi-Urban,Yes
+TXN100057,2024-01-11,01:58,4438.55,Other,Contact,Rural,No
+TXN100058,2024-10-08,22:38,350.57,Entertainment,Online,Rural,Yes
+TXN100059,2024-05-12,05:36,2798.47,Food & Dining,AutoPay,Rural,Yes
+TXN100060,2024-12-06,23:49,159.07,Other,Online,Semi-Urban,No
+TXN100061,2024-04-15,11:50,559.46,Shopping,Online,Rural,Yes
+TXN100062,2024-02-22,03:00,1052.74,Health & Pharmacy,QR,Rural,No
+TXN100063,2024-06-24,11:21,3981.55,Entertainment,Online,Rural,Yes
+TXN100064,2024-02-02,05:42,3700.56,Groceries,Online,Semi-Urban,Yes
+TXN100065,2024-10-22,19:19,553.75,Entertainment,QR,Urban,Yes
+TXN100066,2024-06-11,05:11,3255.52,Shopping,Online,Rural,No
+TXN100067,2024-10-08,12:23,1755.88,Online Services,Contact,Semi-Urban,No
+TXN100068,2024-11-03,21:14,2634.86,Groceries,AutoPay,Semi-Urban,No
+TXN100069,2024-07-19,13:05,4688.29,Fuel,AutoPay,Urban,Yes
+TXN100070,2024-04-17,15:21,3303.64,Entertainment,QR,Rural,No
+TXN100071,2024-08-31,21:17,146.18,Online Services,AutoPay,Rural,Yes
+TXN100072,2024-10-11,14:09,1591.39,Health & Pharmacy,QR,Rural,Yes
+TXN100073,2024-01-30,07:30,1331.0,Entertainment,QR,Rural,No
+TXN100074,2024-02-23,19:03,729.39,Entertainment,Online,Semi-Urban,No
+TXN100075,2024-10-24,00:27,993.7,Fuel,Online,Urban,Yes
+TXN100076,2024-03-22,01:45,2030.29,Online Services,AutoPay,Semi-Urban,Yes
+TXN100077,2024-10-09,07:34,3671.28,Health & Pharmacy,QR,Urban,No
+TXN100078,2024-04-07,00:54,4498.03,Groceries,QR,Rural,No
+TXN100079,2024-06-07,20:24,4355.38,Online Services,QR,Semi-Urban,No
+TXN100080,2024-09-21,02:13,2070.36,Health & Pharmacy,AutoPay,Rural,Yes
+TXN100081,2024-09-06,03:37,594.47,Health & Pharmacy,Online,Urban,No
+TXN100082,2024-10-27,13:43,4213.86,Entertainment,Online,Urban,No
+TXN100083,2024-10-16,12:28,1928.73,Health & Pharmacy,QR,Rural,No
+TXN100084,2024-09-16,16:22,2251.84,Travel,AutoPay,Urban,No
+TXN100085,2024-07-29,12:28,4559.36,Entertainment,Online,Urban,No
+TXN100086,2024-12-13,12:07,3265.46,Other,AutoPay,Rural,Yes
+TXN100087,2024-08-05,05:52,150.99,Fuel,QR,Urban,Yes
+TXN100088,2024-01-28,06:14,1631.88,Fuel,QR,Urban,Yes
+TXN100089,2024-07-28,20:31,4586.35,Fuel,QR,Urban,No
+TXN100090,2024-10-02,23:17,565.08,Food & Dining,Contact,Semi-Urban,No
+TXN100091,2024-07-20,21:27,3086.39,Food & Dining,QR,Urban,No
+TXN100092,2024-09-24,11:26,3549.03,Food & Dining,Online,Urban,Yes
+TXN100093,2024-03-05,04:19,2660.92,Travel,AutoPay,Semi-Urban,Yes
+TXN100094,2024-03-07,00:09,1635.74,Groceries,AutoPay,Urban,No
+TXN100095,2024-05-07,05:37,228.46,Health & Pharmacy,AutoPay,Semi-Urban,Yes
+TXN100096,2024-02-02,05:11,4273.62,Online Services,AutoPay,Semi-Urban,Yes
+TXN100097,2024-04-25,03:36,2155.86,Entertainment,Contact,Urban,Yes
+TXN100098,2024-02-02,10:52,4196.32,Fuel,Online,Semi-Urban,Yes
+TXN100099,2024-05-26,17:02,1780.17,Health & Pharmacy,Online,Rural,No
+TXN100100,2024-01-11,14:46,4016.38,Food & Dining,QR,Semi-Urban,No
+TXN100101,2024-02-11,18:05,475.76,Entertainment,Contact,Urban,No
+TXN100102,2024-11-07,19:00,4630.4,Food & Dining,Online,Rural,Yes
+TXN100103,2024-08-27,21:40,123.87,Groceries,Online,Rural,No
+TXN100104,2024-04-30,06:16,4078.48,Health & Pharmacy,Online,Rural,Yes
+TXN100105,2024-04-25,00:58,2691.74,Food & Dining,Contact,Rural,Yes
+TXN100106,2024-10-16,06:58,2257.43,Shopping,Contact,Semi-Urban,No
+TXN100107,2024-05-29,12:19,4664.3,Entertainment,QR,Semi-Urban,Yes
+TXN100108,2024-01-07,10:48,1937.43,Bills & Utilities,Online,Rural,No
+TXN100109,2024-09-23,20:56,2078.37,Travel,AutoPay,Urban,No
+TXN100110,2024-08-28,22:50,3332.44,Fuel,Contact,Urban,No
+TXN100111,2024-04-11,02:38,730.57,Fuel,AutoPay,Semi-Urban,Yes
+TXN100112,2024-03-27,20:10,2102.82,Entertainment,Online,Urban,No
+TXN100113,2024-11-05,19:00,1899.61,Bills & Utilities,QR,Semi-Urban,Yes
+TXN100114,2024-02-21,01:40,4333.35,Travel,Contact,Semi-Urban,Yes
+TXN100115,2024-09-08,15:40,2147.08,Other,QR,Rural,No
+TXN100116,2024-11-16,23:52,3576.14,Other,Contact,Rural,No
+TXN100117,2024-05-05,19:38,1701.31,Groceries,Contact,Semi-Urban,Yes
+TXN100118,2024-07-09,11:57,3827.46,Travel,QR,Semi-Urban,No
+TXN100119,2024-10-28,18:40,4950.92,Travel,AutoPay,Rural,No
+TXN100120,2024-02-12,12:14,4148.26,Shopping,QR,Rural,Yes
+TXN100121,2024-05-03,15:19,2467.28,Travel,QR,Rural,No
+TXN100122,2024-08-13,19:12,2479.04,Online Services,Contact,Semi-Urban,No
+TXN100123,2024-01-01,17:29,4651.69,Food & Dining,Online,Semi-Urban,No
+TXN100124,2024-04-27,02:01,1726.28,Health & Pharmacy,Online,Semi-Urban,No
+TXN100125,2024-01-03,18:39,512.0,Food & Dining,QR,Rural,No
+TXN100126,2024-03-26,04:31,1203.16,Health & Pharmacy,AutoPay,Semi-Urban,Yes
+TXN100127,2024-06-06,17:03,4677.11,Food & Dining,Contact,Semi-Urban,Yes
+TXN100128,2024-06-18,01:59,4853.97,Groceries,Contact,Urban,Yes
+TXN100129,2024-02-27,14:33,2092.35,Travel,Contact,Rural,No
+TXN100130,2024-11-30,11:47,357.11,Groceries,Online,Rural,No
+TXN100131,2024-04-01,00:04,1404.08,Food & Dining,Contact,Rural,No
+TXN100132,2024-09-04,06:57,1230.83,Food & Dining,Contact,Rural,No
+TXN100133,2024-02-17,10:15,4753.09,Food & Dining,Contact,Urban,No
+TXN100134,2024-02-27,17:22,4150.34,Fuel,AutoPay,Rural,Yes
+TXN100135,2024-08-30,18:26,2974.21,Online Services,Contact,Urban,Yes
+TXN100136,2024-12-13,15:22,3534.68,Other,Online,Semi-Urban,No
+TXN100137,2024-02-16,11:40,2160.57,Shopping,AutoPay,Rural,Yes
+TXN100138,2024-02-17,06:18,2036.35,Health & Pharmacy,Contact,Urban,No
+TXN100139,2024-10-08,19:09,2535.85,Food & Dining,Online,Urban,No
+TXN100140,2024-08-17,05:27,1437.23,Health & Pharmacy,AutoPay,Rural,Yes
+TXN100141,2024-04-14,11:58,510.3,Shopping,AutoPay,Urban,No
+TXN100142,2024-12-11,08:29,3374.06,Shopping,Online,Rural,No
+TXN100143,2024-12-30,06:40,1471.19,Entertainment,QR,Urban,Yes
+TXN100144,2024-07-17,20:16,2590.19,Shopping,Online,Rural,Yes
+TXN100145,2024-03-31,12:05,2286.58,Other,Contact,Urban,No
+TXN100146,2024-09-25,16:38,2556.87,Shopping,QR,Urban,Yes
+TXN100147,2024-06-07,14:40,1977.64,Online Services,QR,Semi-Urban,Yes
+TXN100148,2024-01-01,14:48,4571.7,Online Services,Online,Rural,Yes
+TXN100149,2024-03-17,02:37,1524.98,Bills & Utilities,QR,Semi-Urban,Yes
+TXN100150,2024-01-14,06:15,1657.55,Shopping,Online,Semi-Urban,No
+TXN100151,2024-11-08,07:10,2584.99,Online Services,QR,Rural,No
+TXN100152,2024-09-07,15:43,4940.43,Groceries,Online,Urban,Yes
+TXN100153,2024-09-17,04:00,3439.76,Other,QR,Urban,No
+TXN100154,2024-05-07,16:37,201.72,Travel,QR,Urban,Yes
+TXN100155,2024-06-07,02:58,3194.84,Bills & Utilities,AutoPay,Rural,Yes
+TXN100156,2024-06-01,01:34,2335.81,Health & Pharmacy,Contact,Rural,No
+TXN100157,2024-08-23,16:52,91.26,Online Services,QR,Semi-Urban,Yes
+TXN100158,2024-10-26,05:29,151.51,Fuel,QR,Urban,Yes
+TXN100159,2024-12-28,20:02,905.87,Groceries,Online,Rural,No
+TXN100160,2024-07-21,07:21,2587.58,Online Services,AutoPay,Semi-Urban,Yes
+TXN100161,2024-01-25,21:30,1156.23,Shopping,AutoPay,Rural,No
+TXN100162,2024-02-21,01:09,2954.46,Entertainment,Contact,Semi-Urban,Yes
+TXN100163,2024-08-01,12:26,1913.11,Groceries,Online,Urban,Yes
+TXN100164,2024-02-04,23:03,4800.41,Health & Pharmacy,Contact,Rural,No
+TXN100165,2024-05-24,05:01,718.24,Online Services,Contact,Urban,Yes
+TXN100166,2024-12-15,08:58,872.0,Bills & Utilities,Contact,Urban,Yes
+TXN100167,2024-03-14,06:36,3903.7,Online Services,Online,Semi-Urban,No
+TXN100168,2024-03-13,15:17,2707.98,Travel,QR,Semi-Urban,Yes
+TXN100169,2024-08-02,06:11,4513.74,Shopping,QR,Urban,No
+TXN100170,2024-01-27,15:35,3130.06,Fuel,Contact,Urban,Yes
+TXN100171,2024-04-26,18:02,2623.22,Groceries,Online,Rural,No
+TXN100172,2024-05-27,01:13,1775.11,Health & Pharmacy,Contact,Semi-Urban,No
+TXN100173,2024-03-04,11:57,1689.69,Online Services,QR,Rural,Yes
+TXN100174,2024-11-25,12:37,786.05,Fuel,QR,Rural,No
+TXN100175,2024-02-15,21:01,4347.44,Food & Dining,Online,Rural,Yes
+TXN100176,2024-08-08,08:41,1620.43,Shopping,Online,Rural,Yes
+TXN100177,2024-01-13,05:18,469.16,Groceries,QR,Semi-Urban,No
+TXN100178,2024-02-07,18:01,3508.04,Food & Dining,Contact,Urban,No
+TXN100179,2024-01-04,06:07,1697.81,Health & Pharmacy,Online,Rural,Yes
+TXN100180,2024-10-22,05:50,1262.48,Fuel,QR,Urban,No
+TXN100181,2024-02-22,16:30,23.75,Bills & Utilities,Contact,Urban,No
+TXN100182,2024-06-02,20:07,173.03,Other,Online,Semi-Urban,Yes
+TXN100183,2024-04-11,01:52,2006.67,Food & Dining,QR,Urban,No
+TXN100184,2024-03-02,14:33,864.49,Shopping,Contact,Semi-Urban,Yes
+TXN100185,2024-02-20,21:57,3510.71,Bills & Utilities,Contact,Rural,No
+TXN100186,2024-08-25,12:34,1084.09,Travel,QR,Rural,Yes
+TXN100187,2024-01-26,20:41,4198.16,Health & Pharmacy,Contact,Rural,Yes
+TXN100188,2024-11-04,20:32,4345.45,Bills & Utilities,QR,Rural,Yes
+TXN100189,2024-11-18,13:01,567.33,Groceries,AutoPay,Urban,No
+TXN100190,2024-03-14,07:00,4631.92,Online Services,AutoPay,Semi-Urban,Yes
+TXN100191,2024-08-11,00:34,1041.67,Groceries,QR,Rural,Yes
+TXN100192,2024-08-13,11:26,4696.07,Shopping,QR,Semi-Urban,No
+TXN100193,2024-12-21,14:09,3719.24,Bills & Utilities,AutoPay,Rural,Yes
+TXN100194,2024-10-15,17:26,1902.16,Health & Pharmacy,AutoPay,Urban,Yes
+TXN100195,2024-06-06,05:15,2243.45,Bills & Utilities,QR,Rural,Yes
+TXN100196,2024-05-02,15:23,4654.41,Food & Dining,Online,Rural,Yes
+TXN100197,2024-08-02,19:22,572.32,Other,QR,Rural,Yes
+TXN100198,2024-11-27,23:52,3259.55,Bills & Utilities,Online,Rural,No
+TXN100199,2024-10-26,02:27,1415.72,Bills & Utilities,AutoPay,Semi-Urban,Yes
+TXN100200,2024-01-21,02:44,3639.36,Shopping,Online,Rural,No
+TXN100201,2024-09-13,03:16,3669.78,Travel,AutoPay,Urban,Yes
+TXN100202,2024-08-29,01:01,1640.15,Groceries,QR,Urban,No
+TXN100203,2024-10-18,10:47,3100.32,Entertainment,Online,Urban,No
+TXN100204,2024-01-18,03:38,1410.81,Online Services,Online,Rural,Yes
+TXN100205,2024-04-04,02:55,323.81,Travel,QR,Rural,No
+TXN100206,2024-09-20,11:59,2593.7,Online Services,QR,Urban,No
+TXN100207,2024-01-25,01:34,4662.59,Other,QR,Urban,Yes
+TXN100208,2024-06-27,06:12,3240.34,Online Services,QR,Semi-Urban,Yes
+TXN100209,2024-12-17,04:24,3253.17,Entertainment,Online,Rural,Yes
+TXN100210,2024-12-02,07:16,1649.62,Bills & Utilities,Online,Rural,No
+TXN100211,2024-04-12,07:59,3587.67,Fuel,QR,Rural,Yes
+TXN100212,2024-04-02,02:48,1039.4,Entertainment,QR,Rural,No
+TXN100213,2024-01-29,09:18,4807.85,Shopping,Contact,Urban,No
+TXN100214,2024-03-18,02:38,179.8,Online Services,Contact,Rural,No
+TXN100215,2024-12-27,15:47,4231.05,Travel,QR,Urban,Yes
+TXN100216,2024-01-04,15:29,1935.63,Travel,Online,Semi-Urban,Yes
+TXN100217,2024-12-05,20:08,2026.26,Shopping,AutoPay,Rural,No
+TXN100218,2024-09-08,20:06,2258.8,Health & Pharmacy,Contact,Semi-Urban,Yes
+TXN100219,2024-04-06,00:43,4507.19,Bills & Utilities,QR,Rural,No
+TXN100220,2024-03-11,00:57,4201.19,Bills & Utilities,Online,Urban,No
+TXN100221,2024-06-05,02:12,1633.01,Fuel,Online,Rural,Yes
+TXN100222,2024-09-04,13:54,4436.45,Groceries,AutoPay,Semi-Urban,Yes
+TXN100223,2024-01-06,11:57,1784.02,Entertainment,AutoPay,Semi-Urban,Yes
+TXN100224,2024-06-21,20:31,4322.73,Health & Pharmacy,QR,Urban,Yes
+TXN100225,2024-12-28,12:56,4427.2,Online Services,Contact,Semi-Urban,No
+TXN100226,2024-12-01,10:24,3557.27,Other,Online,Semi-Urban,No
+TXN100227,2024-01-01,22:09,975.8,Shopping,QR,Urban,No
+TXN100228,2024-09-18,15:37,2678.28,Groceries,AutoPay,Semi-Urban,Yes
+TXN100229,2024-01-23,12:47,3103.56,Travel,AutoPay,Rural,No
+TXN100230,2024-11-28,13:48,2281.53,Bills & Utilities,AutoPay,Urban,Yes
+TXN100231,2024-04-23,14:02,3246.54,Shopping,AutoPay,Rural,Yes
+TXN100232,2024-01-26,13:57,2816.67,Bills & Utilities,QR,Urban,Yes
+TXN100233,2024-10-22,20:21,3776.13,Fuel,AutoPay,Semi-Urban,Yes
+TXN100234,2024-09-20,20:50,827.01,Entertainment,Contact,Semi-Urban,No
+TXN100235,2024-09-15,13:22,2038.46,Online Services,Contact,Rural,No
+TXN100236,2024-07-25,17:00,4461.64,Bills & Utilities,Contact,Urban,No
+TXN100237,2024-07-07,07:06,1258.06,Bills & Utilities,QR,Rural,No
+TXN100238,2024-08-27,14:11,3583.59,Travel,QR,Rural,No
+TXN100239,2024-01-21,02:09,3002.79,Online Services,QR,Semi-Urban,No
+TXN100240,2024-05-07,20:50,573.48,Online Services,Contact,Urban,Yes
+TXN100241,2024-11-18,22:57,2557.78,Food & Dining,QR,Rural,No
+TXN100242,2024-05-15,17:27,3464.65,Other,Online,Rural,Yes
+TXN100243,2024-07-05,08:56,3132.94,Fuel,Online,Rural,Yes
+TXN100244,2024-12-20,11:33,3132.44,Travel,QR,Semi-Urban,No
+TXN100245,2024-02-29,07:04,4805.35,Food & Dining,Contact,Rural,No
+TXN100246,2024-10-06,03:29,231.74,Groceries,AutoPay,Rural,No
+TXN100247,2024-05-17,09:30,3876.02,Online Services,Contact,Rural,No
+TXN100248,2024-01-27,03:33,2388.11,Health & Pharmacy,Contact,Semi-Urban,Yes
+TXN100249,2024-06-01,01:11,2798.46,Travel,AutoPay,Urban,Yes
+TXN100250,2024-09-21,09:37,2438.1,Bills & Utilities,Online,Urban,No
+TXN100251,2024-06-27,11:06,2999.18,Bills & Utilities,Contact,Urban,Yes
+TXN100252,2024-12-26,00:45,1372.33,Travel,Contact,Semi-Urban,No
+TXN100253,2024-11-25,14:16,456.07,Online Services,Online,Urban,Yes
+TXN100254,2024-03-18,12:07,4883.88,Health & Pharmacy,Online,Semi-Urban,No
+TXN100255,2024-05-22,16:52,3439.1,Other,Contact,Urban,No
+TXN100256,2024-10-31,02:37,2842.51,Fuel,AutoPay,Rural,Yes
+TXN100257,2024-12-17,11:32,3484.22,Other,Online,Semi-Urban,No
+TXN100258,2024-09-19,16:48,4100.51,Health & Pharmacy,Contact,Urban,No
+TXN100259,2024-09-14,21:36,1888.9,Travel,Online,Semi-Urban,Yes
+TXN100260,2024-05-20,10:14,3446.03,Travel,Online,Urban,Yes
+TXN100261,2024-05-15,11:58,328.46,Food & Dining,QR,Rural,No
+TXN100262,2024-06-06,15:03,3999.15,Other,QR,Urban,Yes
+TXN100263,2024-05-28,00:51,4780.64,Groceries,AutoPay,Rural,Yes
+TXN100264,2024-11-19,00:05,2945.77,Health & Pharmacy,QR,Rural,Yes
+TXN100265,2024-04-16,06:29,3450.71,Bills & Utilities,Contact,Semi-Urban,No
+TXN100266,2024-07-20,16:14,2928.46,Travel,Online,Urban,Yes
+TXN100267,2024-10-19,05:54,17.62,Travel,Contact,Semi-Urban,Yes
+TXN100268,2024-08-12,08:34,1302.17,Shopping,QR,Urban,No
+TXN100269,2024-09-08,05:34,341.6,Health & Pharmacy,Online,Semi-Urban,No
+TXN100270,2024-11-18,14:44,3900.37,Food & Dining,Online,Rural,No
+TXN100271,2024-11-04,18:29,1470.78,Health & Pharmacy,Contact,Urban,Yes
+TXN100272,2024-04-15,07:58,3267.95,Health & Pharmacy,Online,Urban,No
+TXN100273,2024-09-05,04:14,4455.37,Online Services,Contact,Urban,No
+TXN100274,2024-06-16,17:01,780.06,Fuel,Contact,Semi-Urban,Yes
+TXN100275,2024-04-12,10:45,83.32,Online Services,Contact,Semi-Urban,No
+TXN100276,2024-03-13,10:57,1505.17,Shopping,Online,Rural,No
+TXN100277,2024-01-21,03:18,1723.3,Health & Pharmacy,Contact,Urban,Yes
+TXN100278,2024-02-16,23:04,2545.5,Groceries,QR,Urban,No
+TXN100279,2024-04-02,14:49,940.47,Food & Dining,Online,Urban,Yes
+TXN100280,2024-07-16,11:19,1815.03,Online Services,QR,Rural,Yes
+TXN100281,2024-11-11,20:07,3936.91,Groceries,Online,Rural,Yes
+TXN100282,2024-07-04,00:03,3000.85,Food & Dining,AutoPay,Urban,No
+TXN100283,2024-10-29,18:05,611.67,Entertainment,Contact,Urban,Yes
+TXN100284,2024-09-11,02:53,1161.28,Travel,QR,Urban,Yes
+TXN100285,2024-10-24,03:23,4741.37,Health & Pharmacy,Online,Semi-Urban,Yes
+TXN100286,2024-11-29,19:45,4720.5,Fuel,QR,Rural,Yes
+TXN100287,2024-12-17,07:46,4954.65,Entertainment,AutoPay,Semi-Urban,No
+TXN100288,2024-08-12,03:24,309.7,Fuel,Contact,Urban,Yes
+TXN100289,2024-04-05,14:27,3901.89,Entertainment,Contact,Urban,No
+TXN100290,2024-10-10,03:19,2938.3,Travel,Online,Rural,No
+TXN100291,2024-01-23,22:08,1138.22,Shopping,AutoPay,Urban,Yes
+TXN100292,2024-06-20,09:42,2205.33,Groceries,AutoPay,Urban,Yes
+TXN100293,2024-08-08,11:17,78.34,Other,AutoPay,Rural,No
+TXN100294,2024-03-25,11:52,1953.62,Bills & Utilities,QR,Urban,Yes
+TXN100295,2024-07-02,17:34,4676.72,Bills & Utilities,Contact,Urban,No
+TXN100296,2024-05-27,11:29,1380.83,Entertainment,Contact,Urban,Yes
+TXN100297,2024-05-29,07:00,1814.12,Travel,Online,Rural,No
+TXN100298,2024-09-01,00:55,4447.94,Food & Dining,QR,Urban,Yes
+TXN100299,2024-04-28,22:27,3601.5,Online Services,Contact,Semi-Urban,No
+TXN100300,2024-09-05,02:38,1584.35,Other,Contact,Urban,No
+TXN100301,2024-11-03,15:00,4703.7,Shopping,AutoPay,Urban,No
+TXN100302,2024-10-25,06:11,2193.75,Groceries,Online,Semi-Urban,Yes
+TXN100303,2024-05-10,12:59,2197.87,Online Services,Online,Urban,No
+TXN100304,2024-03-09,16:02,2960.71,Entertainment,QR,Rural,No
+TXN100305,2024-08-01,11:12,342.21,Bills & Utilities,Contact,Semi-Urban,Yes
+TXN100306,2024-04-19,23:43,1003.22,Travel,Online,Semi-Urban,Yes
+TXN100307,2024-02-03,13:23,4047.47,Food & Dining,QR,Semi-Urban,Yes
+TXN100308,2024-07-02,18:03,1928.81,Health & Pharmacy,Contact,Rural,Yes
+TXN100309,2024-06-16,22:14,2520.37,Entertainment,QR,Rural,Yes
+TXN100310,2024-09-19,17:32,3140.49,Other,AutoPay,Urban,Yes
+TXN100311,2024-03-24,04:38,1339.21,Entertainment,Contact,Semi-Urban,No
+TXN100312,2024-06-24,10:16,2679.73,Health & Pharmacy,Online,Semi-Urban,Yes
+TXN100313,2024-10-05,10:54,4479.08,Health & Pharmacy,Online,Rural,No
+TXN100314,2024-04-14,06:44,2466.76,Health & Pharmacy,Online,Semi-Urban,Yes
+TXN100315,2024-11-22,10:14,1867.64,Health & Pharmacy,AutoPay,Semi-Urban,No
+TXN100316,2024-12-19,06:18,3912.95,Fuel,QR,Semi-Urban,Yes
+TXN100317,2024-08-11,07:27,3123.74,Health & Pharmacy,Contact,Urban,No
+TXN100318,2024-04-17,11:02,2887.86,Shopping,Contact,Semi-Urban,Yes
+TXN100319,2024-02-12,07:18,3546.88,Groceries,AutoPay,Rural,Yes
+TXN100320,2024-06-04,03:40,1588.51,Groceries,AutoPay,Urban,No
+TXN100321,2024-01-24,00:29,602.24,Other,QR,Semi-Urban,Yes
+TXN100322,2024-08-15,14:23,258.09,Online Services,Contact,Semi-Urban,No
+TXN100323,2024-03-12,08:54,4582.49,Shopping,AutoPay,Urban,Yes
+TXN100324,2024-09-18,10:52,3787.97,Food & Dining,Online,Rural,No
+TXN100325,2024-06-30,00:34,293.95,Health & Pharmacy,QR,Semi-Urban,Yes
+TXN100326,2024-05-08,16:08,4496.93,Food & Dining,Contact,Semi-Urban,No
+TXN100327,2024-01-15,18:05,4310.22,Fuel,AutoPay,Semi-Urban,Yes
+TXN100328,2024-07-05,14:33,4727.47,Food & Dining,Online,Rural,No
+TXN100329,2024-12-27,01:12,3332.19,Entertainment,Online,Semi-Urban,No
+TXN100330,2024-01-07,12:48,2930.58,Other,Contact,Urban,Yes
+TXN100331,2024-07-04,21:27,2556.14,Travel,AutoPay,Urban,No
+TXN100332,2024-10-20,06:48,2369.41,Other,Contact,Urban,No
+TXN100333,2024-06-26,18:53,2828.35,Bills & Utilities,Online,Semi-Urban,No
+TXN100334,2024-04-03,09:07,3015.62,Online Services,QR,Urban,No
+TXN100335,2024-05-05,15:47,4354.25,Groceries,Online,Urban,No
+TXN100336,2024-07-13,01:08,4158.25,Fuel,Online,Urban,Yes
+TXN100337,2024-01-11,23:24,3219.23,Bills & Utilities,AutoPay,Rural,Yes
+TXN100338,2024-11-24,04:15,662.44,Health & Pharmacy,QR,Urban,No
+TXN100339,2024-01-03,04:49,2144.37,Other,Contact,Rural,Yes
+TXN100340,2024-11-08,05:00,4788.06,Health & Pharmacy,Online,Urban,Yes
+TXN100341,2024-07-07,03:55,4283.64,Groceries,Contact,Semi-Urban,No
+TXN100342,2024-04-28,13:50,187.33,Fuel,QR,Semi-Urban,No
+TXN100343,2024-10-16,04:55,3572.04,Shopping,QR,Rural,No
+TXN100344,2024-10-25,15:09,377.36,Shopping,Online,Rural,Yes
+TXN100345,2024-09-08,20:42,1902.61,Entertainment,AutoPay,Rural,Yes
+TXN100346,2024-05-13,21:43,1680.9,Food & Dining,AutoPay,Urban,No
+TXN100347,2024-10-12,01:36,3183.25,Health & Pharmacy,Online,Urban,Yes
+TXN100348,2024-04-30,21:15,340.25,Other,AutoPay,Urban,No
+TXN100349,2024-12-14,18:47,4456.75,Fuel,Contact,Rural,No
+TXN100350,2024-07-26,19:09,3794.67,Bills & Utilities,QR,Rural,No
+TXN100351,2024-06-05,17:18,627.56,Bills & Utilities,Contact,Urban,Yes
+TXN100352,2024-01-29,16:11,3687.33,Travel,Contact,Urban,Yes
+TXN100353,2024-03-23,10:01,2784.56,Food & Dining,QR,Semi-Urban,No
+TXN100354,2024-11-16,18:46,340.45,Travel,Online,Urban,Yes
+TXN100355,2024-06-19,08:34,4562.21,Entertainment,Contact,Rural,No
+TXN100356,2024-08-15,02:36,4413.87,Health & Pharmacy,QR,Semi-Urban,Yes
+TXN100357,2024-07-01,05:06,4481.27,Food & Dining,Online,Urban,No
+TXN100358,2024-08-06,13:44,4737.5,Travel,AutoPay,Semi-Urban,No
+TXN100359,2024-11-24,22:32,2216.88,Shopping,AutoPay,Rural,No
+TXN100360,2024-01-18,11:09,4630.52,Health & Pharmacy,QR,Semi-Urban,Yes
+TXN100361,2024-05-02,18:15,2905.05,Fuel,Online,Urban,No
+TXN100362,2024-03-19,22:17,4228.99,Shopping,Contact,Urban,Yes
+TXN100363,2024-04-27,21:45,222.08,Health & Pharmacy,Contact,Urban,Yes
+TXN100364,2024-09-11,00:01,3749.83,Bills & Utilities,QR,Rural,No
+TXN100365,2024-10-26,19:40,1500.0,Other,AutoPay,Urban,No
+TXN100366,2024-09-30,15:45,4430.85,Bills & Utilities,AutoPay,Semi-Urban,No
+TXN100367,2024-12-03,07:48,1685.21,Entertainment,QR,Urban,No
+TXN100368,2024-05-20,05:01,4906.4,Online Services,Online,Semi-Urban,Yes
+TXN100369,2024-05-18,17:16,3207.9,Other,Contact,Rural,Yes
+TXN100370,2024-09-15,17:08,2389.22,Fuel,Contact,Semi-Urban,Yes
+TXN100371,2024-11-19,12:44,3963.62,Other,Online,Semi-Urban,Yes
+TXN100372,2024-05-27,05:14,1563.85,Shopping,AutoPay,Rural,Yes
+TXN100373,2024-07-11,12:36,3416.01,Other,Contact,Urban,Yes
+TXN100374,2024-05-31,06:43,658.78,Other,Online,Semi-Urban,Yes
+TXN100375,2024-04-16,07:46,408.39,Shopping,QR,Urban,Yes
+TXN100376,2024-07-18,16:34,505.75,Groceries,QR,Urban,Yes
+TXN100377,2024-05-01,01:20,4193.18,Online Services,Online,Urban,No
+TXN100378,2024-07-05,08:16,1694.92,Health & Pharmacy,QR,Urban,No
+TXN100379,2024-04-14,18:50,182.29,Other,Online,Urban,Yes
+TXN100380,2024-05-28,17:48,2151.58,Other,QR,Rural,No
+TXN100381,2024-09-08,18:09,1823.96,Fuel,AutoPay,Urban,No
+TXN100382,2024-04-24,15:32,4487.08,Entertainment,AutoPay,Rural,No
+TXN100383,2024-09-04,15:16,2888.44,Entertainment,Contact,Semi-Urban,Yes
+TXN100384,2024-08-13,08:38,3104.94,Shopping,Contact,Urban,Yes
+TXN100385,2024-03-18,12:12,1118.97,Groceries,Contact,Urban,No
+TXN100386,2024-11-29,15:33,26.2,Bills & Utilities,Online,Rural,Yes
+TXN100387,2024-11-02,03:25,4702.66,Food & Dining,QR,Semi-Urban,Yes
+TXN100388,2024-07-25,04:41,2941.42,Other,AutoPay,Rural,No
+TXN100389,2024-08-27,06:47,2923.46,Travel,AutoPay,Semi-Urban,Yes
+TXN100390,2024-02-03,04:37,4700.16,Shopping,AutoPay,Urban,Yes
+TXN100391,2024-01-18,13:33,3715.28,Online Services,AutoPay,Rural,No
+TXN100392,2024-05-31,15:49,3155.6,Travel,Contact,Semi-Urban,No
+TXN100393,2024-01-24,05:14,1853.75,Health & Pharmacy,AutoPay,Semi-Urban,Yes
+TXN100394,2024-11-03,17:02,4005.72,Food & Dining,AutoPay,Rural,No
+TXN100395,2024-01-03,19:40,4767.1,Entertainment,AutoPay,Semi-Urban,No
+TXN100396,2024-12-28,11:55,2842.29,Online Services,Online,Rural,Yes
+TXN100397,2024-08-31,09:18,1748.15,Food & Dining,AutoPay,Semi-Urban,Yes
+TXN100398,2024-03-05,23:20,2720.45,Groceries,Online,Urban,Yes
+TXN100399,2024-11-19,17:37,863.35,Fuel,AutoPay,Rural,No
+TXN100400,2024-01-16,14:00,3168.04,Fuel,Online,Urban,Yes
+TXN100401,2024-12-20,00:04,1888.85,Shopping,QR,Rural,Yes
+TXN100402,2024-10-14,20:26,936.98,Other,QR,Urban,No
+TXN100403,2024-11-23,01:31,831.01,Groceries,Contact,Semi-Urban,No
+TXN100404,2024-07-06,21:33,178.79,Fuel,AutoPay,Semi-Urban,No
+TXN100405,2024-05-25,19:33,3117.87,Shopping,Online,Rural,Yes
+TXN100406,2024-04-11,18:00,213.27,Groceries,QR,Semi-Urban,Yes
+TXN100407,2024-01-19,09:56,2217.01,Entertainment,AutoPay,Semi-Urban,No
+TXN100408,2024-06-26,09:07,3017.86,Health & Pharmacy,AutoPay,Semi-Urban,Yes
+TXN100409,2024-04-09,07:15,915.46,Fuel,Contact,Urban,No
+TXN100410,2024-04-14,09:32,890.9,Other,Online,Rural,No
+TXN100411,2024-01-02,16:38,2538.96,Shopping,AutoPay,Semi-Urban,Yes
+TXN100412,2024-01-26,17:12,1282.31,Entertainment,QR,Semi-Urban,Yes
+TXN100413,2024-04-02,17:16,1958.81,Fuel,Online,Rural,No
+TXN100414,2024-02-13,02:03,2985.23,Online Services,AutoPay,Urban,No
+TXN100415,2024-08-07,18:39,4158.29,Groceries,Contact,Semi-Urban,Yes
+TXN100416,2024-06-23,17:52,3913.12,Other,AutoPay,Urban,Yes
+TXN100417,2024-10-28,08:32,3508.03,Health & Pharmacy,AutoPay,Rural,No
+TXN100418,2024-01-02,06:32,879.71,Online Services,Online,Urban,No
+TXN100419,2024-08-02,14:41,1217.6,Fuel,Online,Rural,Yes
+TXN100420,2024-04-10,12:31,3526.0,Travel,AutoPay,Rural,No
+TXN100421,2024-09-02,11:29,4591.38,Food & Dining,AutoPay,Semi-Urban,No
+TXN100422,2024-07-05,09:49,705.13,Bills & Utilities,AutoPay,Semi-Urban,Yes
+TXN100423,2024-12-02,12:10,1882.57,Food & Dining,AutoPay,Urban,Yes
+TXN100424,2024-06-24,15:11,1940.86,Online Services,QR,Rural,No
+TXN100425,2024-08-11,11:37,4728.56,Bills & Utilities,Contact,Urban,Yes
+TXN100426,2024-04-07,02:28,276.8,Travel,Contact,Semi-Urban,Yes
+TXN100427,2024-03-25,09:35,551.21,Groceries,QR,Semi-Urban,Yes
+TXN100428,2024-11-01,12:39,3420.97,Shopping,Contact,Semi-Urban,No
+TXN100429,2024-08-24,19:44,3892.96,Online Services,Online,Urban,No
+TXN100430,2024-06-08,23:04,610.78,Groceries,QR,Urban,Yes
+TXN100431,2024-12-16,20:09,2687.35,Travel,AutoPay,Urban,Yes
+TXN100432,2024-07-01,19:12,4543.47,Food & Dining,AutoPay,Rural,No
+TXN100433,2024-08-06,02:07,1663.42,Travel,Contact,Urban,No
+TXN100434,2024-12-10,18:50,587.36,Bills & Utilities,AutoPay,Rural,Yes
+TXN100435,2024-05-08,00:59,384.49,Online Services,AutoPay,Semi-Urban,No
+TXN100436,2024-10-26,20:35,690.64,Fuel,Online,Rural,No
+TXN100437,2024-07-09,20:13,1576.72,Online Services,AutoPay,Urban,No
+TXN100438,2024-06-26,19:20,4199.92,Health & Pharmacy,AutoPay,Rural,No
+TXN100439,2024-05-08,21:37,4591.72,Fuel,Contact,Semi-Urban,No
+TXN100440,2024-09-10,04:31,2293.47,Bills & Utilities,Online,Urban,Yes
+TXN100441,2024-07-04,00:00,2270.94,Food & Dining,QR,Semi-Urban,No
+TXN100442,2024-05-09,21:05,1481.04,Entertainment,Contact,Rural,Yes
+TXN100443,2024-11-08,23:04,2251.33,Online Services,QR,Semi-Urban,Yes
+TXN100444,2024-09-02,16:18,3281.67,Bills & Utilities,Contact,Semi-Urban,Yes
+TXN100445,2024-03-20,13:22,3943.44,Bills & Utilities,Online,Rural,No
+TXN100446,2024-01-19,19:17,4718.16,Travel,QR,Rural,Yes
+TXN100447,2024-07-23,12:45,3720.19,Shopping,AutoPay,Semi-Urban,Yes
+TXN100448,2024-08-24,17:58,4354.81,Fuel,AutoPay,Semi-Urban,No
+TXN100449,2024-07-01,16:22,2088.85,Food & Dining,AutoPay,Urban,Yes
+TXN100450,2024-10-23,22:33,4369.66,Food & Dining,AutoPay,Semi-Urban,Yes
+TXN100451,2024-04-11,13:48,4586.41,Fuel,Online,Semi-Urban,Yes
+TXN100452,2024-04-30,21:52,3064.57,Fuel,Online,Urban,Yes
+TXN100453,2024-06-11,12:48,3040.36,Fuel,Contact,Urban,Yes
+TXN100454,2024-02-17,08:32,4553.58,Health & Pharmacy,Online,Rural,Yes
+TXN100455,2024-08-16,12:50,3295.19,Online Services,Online,Rural,No
+TXN100456,2024-03-13,04:32,1595.59,Travel,Contact,Urban,No
+TXN100457,2024-10-22,15:08,4963.92,Groceries,QR,Urban,No
+TXN100458,2024-11-17,19:35,1001.8,Online Services,Online,Semi-Urban,Yes
+TXN100459,2024-11-23,08:14,385.08,Bills & Utilities,QR,Semi-Urban,No
+TXN100460,2024-12-22,15:48,1882.6,Travel,Contact,Rural,No
+TXN100461,2024-03-24,20:35,943.66,Bills & Utilities,Online,Rural,Yes
+TXN100462,2024-08-12,17:08,3666.58,Food & Dining,QR,Urban,Yes
+TXN100463,2024-08-07,15:27,1673.07,Shopping,AutoPay,Urban,No
+TXN100464,2024-12-22,16:55,1537.56,Groceries,QR,Rural,No
+TXN100465,2024-10-12,23:56,1093.66,Groceries,Online,Rural,Yes
+TXN100466,2024-07-04,09:47,3997.03,Fuel,Online,Rural,No
+TXN100467,2024-06-05,20:52,4920.98,Fuel,Online,Rural,Yes
+TXN100468,2024-11-01,01:29,772.99,Online Services,AutoPay,Semi-Urban,No
+TXN100469,2024-03-24,06:51,3555.17,Other,AutoPay,Rural,Yes
+TXN100470,2024-10-25,12:19,167.43,Health & Pharmacy,AutoPay,Semi-Urban,No
+TXN100471,2024-12-16,03:10,404.07,Entertainment,Contact,Urban,No
+TXN100472,2024-06-07,19:09,4387.88,Groceries,Contact,Urban,No
+TXN100473,2024-01-07,23:51,2960.87,Entertainment,AutoPay,Urban,Yes
+TXN100474,2024-11-07,13:42,3866.8,Food & Dining,Online,Urban,Yes
+TXN100475,2024-09-02,20:22,4216.8,Bills & Utilities,AutoPay,Urban,No
+TXN100476,2024-05-22,23:07,1477.7,Shopping,Online,Semi-Urban,Yes
+TXN100477,2024-06-07,07:08,859.97,Online Services,AutoPay,Semi-Urban,No
+TXN100478,2024-02-28,12:47,2847.03,Fuel,AutoPay,Urban,Yes
+TXN100479,2024-01-13,23:21,4534.35,Travel,Contact,Rural,Yes
+TXN100480,2024-02-25,03:34,2612.06,Groceries,AutoPay,Urban,No
+TXN100481,2024-05-25,21:40,116.49,Food & Dining,QR,Semi-Urban,No
+TXN100482,2024-12-01,21:29,4803.6,Online Services,AutoPay,Semi-Urban,Yes
+TXN100483,2024-06-02,01:38,2309.46,Fuel,Online,Rural,No
+TXN100484,2024-10-05,16:32,1466.21,Online Services,Online,Rural,Yes
+TXN100485,2024-04-22,10:48,825.68,Fuel,Online,Urban,Yes
+TXN100486,2024-12-14,11:10,1429.29,Travel,AutoPay,Semi-Urban,No
+TXN100487,2024-08-30,17:06,2714.87,Entertainment,AutoPay,Semi-Urban,No
+TXN100488,2024-04-28,21:45,2968.86,Entertainment,QR,Urban,Yes
+TXN100489,2024-01-21,14:09,975.73,Groceries,QR,Urban,No
+TXN100490,2024-01-06,18:26,2549.49,Travel,QR,Semi-Urban,Yes
+TXN100491,2024-10-21,03:36,4130.97,Online Services,AutoPay,Rural,Yes
+TXN100492,2024-06-04,21:09,1373.24,Fuel,Online,Urban,No
+TXN100493,2024-04-30,18:37,4733.97,Groceries,Contact,Rural,Yes
+TXN100494,2024-12-16,20:50,132.26,Other,Contact,Rural,No
+TXN100495,2024-10-17,05:46,140.44,Travel,Online,Urban,No
+TXN100496,2024-11-09,13:06,3321.11,Bills & Utilities,AutoPay,Urban,Yes
+TXN100497,2024-07-25,04:37,169.1,Fuel,AutoPay,Urban,Yes
+TXN100498,2024-10-15,17:36,3401.27,Groceries,QR,Rural,Yes
+TXN100499,2024-08-23,20:11,2457.92,Groceries,Contact,Rural,Yes
