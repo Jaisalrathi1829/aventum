@@ -6,8 +6,12 @@ services:
     environment:
       POSTGRES_DB: aventum
       POSTGRES_USER: aventum
-      # Local development credential only. Not a secret, not reused anywhere else.
-      POSTGRES_PASSWORD: aventum_local_dev
+      # Local development credential only. Not a secret, not reused anywhere else --
+      # but parameterized (not a bare literal) so a public checkout never displays a
+      # plaintext password, and anyone running this against an exposed host can
+      # override it via backend/.env (gitignored; see .env.example) instead of
+      # editing this file. Falls back to the same throwaway default with zero config.
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-aventum_local_dev}
     ports:
       # 5433 on the host so this never collides with an existing local PostgreSQL on 5432.
       - "5433:5432"
