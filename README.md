@@ -12,10 +12,11 @@ Aventum is an AI Payment Incident Intelligence Agent that detects, diagnoses, si
 | Day 2A review + P1 provenance fix | Complete ([`docs/DAY2A_P1_FIX_REPORT.md`](docs/DAY2A_P1_FIX_REPORT.md)) |
 | Day 2B — synthetic infrastructure baseline | Complete ([`docs/DAY2B_INFRASTRUCTURE_REPORT.md`](docs/DAY2B_INFRASTRUCTURE_REPORT.md)) |
 | **Day 3 — incident injection, detection, evidence, RCA** | **Complete** ([`docs/DAY3_IMPLEMENTATION_REPORT.md`](docs/DAY3_IMPLEMENTATION_REPORT.md)) |
-| Day 4 — counterfactual simulator, Qwen agent, recommendation, approval | Not started |
+| **Day 4A — counterfactual simulator, policy gate, recommendation, approval, simulated execution** | **Complete** ([`docs/DAY4A_IMPLEMENTATION_REPORT.md`](docs/DAY4A_IMPLEMENTATION_REPORT.md)) |
+| Day 4B — Qwen agent, typed tools, orchestration | Not started |
 | Day 5 — frontend, end-to-end integration, verification, audit trail | Not started |
 
-Implemented so far: canonical transaction ingestion, an explicitly synthetic payment-infrastructure baseline (gateways, routing, latency, response codes, health), and incident intelligence — controlled incident injection, an Approach B simulated-outcome layer, deterministic anomaly detection, an evidence engine, competing-hypothesis ranking, and explainable RCA. There is no counterfactual simulator, no agent, no recommendation or approval workflow, and no frontend.
+Implemented so far: canonical transaction ingestion, an explicitly synthetic payment-infrastructure baseline (gateways, routing, latency, response codes, health), incident intelligence (controlled injection, an Approach B simulated-outcome layer, deterministic anomaly detection, an evidence engine, competing-hypothesis ranking, explainable RCA), and the Day 4A deterministic decision core — counterfactual simulation, business impact, a 13-gate fail-closed safety policy, bounded recommendations, human approval, simulated execution, and an append-only audit trail. There is no agent, no LLM integration, and no frontend.
 
 ---
 
@@ -129,13 +130,40 @@ cd backend && .venv/Scripts/python -m aventum_incident.cli handoff <analysis_run
 
 **`transactions` is never written to.** An incident *adds* modelled failures in a separate `simulated_incident_outcomes` layer; it never reallocates observed ones, and the database enforces this with a CHECK constraint. Incident ground truth lives in its own table that no detection or RCA code path reads. See [`docs/DAY3_IMPLEMENTATION_REPORT.md`](docs/DAY3_IMPLEMENTATION_REPORT.md).
 
+---
+
+## Day 4A — the deterministic decision core
+
+Consumes a Day 3 diagnosis and runs the full decision spine — **with no LLM involved at all**:
+`counterfactual simulation → business impact → NO_ACTION comparison → policy gate → recommendation → human approval → simulated execution → audit`.
+
+```bash
+cd backend && .venv/Scripts/python -m aventum_action.cli decide <analysis_run_id>
+```
+
+Simulates 13 candidates (NO_ACTION plus 10/20/30% reroutes to each eligible healthy gateway), selects deterministically, and validates against 13 fail-closed policy gates. On the flagship incident it selects `gateway_C → gateway_A @ 30%` for a projected **19,126.26 INR retained** and passes every gate.
+
+Approval is a **separate, human step** — there is deliberately no `--auto-approve` flag:
+
+```bash
+cd backend && .venv/Scripts/python -m aventum_action.cli request <recommendation_id>
+cd backend && .venv/Scripts/python -m aventum_action.cli approve <approval_id> --approver <name>
+cd backend && .venv/Scripts/python -m aventum_action.cli execute <recommendation_id> <approval_id>
+cd backend && .venv/Scripts/python -m aventum_action.cli verify <action_id>   # Day 5 handoff as JSON
+cd backend && .venv/Scripts/python -m aventum_action.cli audit <incident_id>  # append-only trail
+```
+
+**Three properties are structural, not procedural.** The recommendation builder accepts *no numeric parameter* — every figure is read server-side from the persisted simulation, so a fabricated number has no way in. `SHA256(recommendation_id ‖ approval_id ‖ adapter_name)` is UNIQUE on `actions`, so concurrent executions produce exactly one adapter call. And the input fingerprint is re-derived from the live world at execution time, so a stale action cannot run.
+
+**Execution is simulated.** `actions.is_simulated` carries `CHECK (= true)` — the database refuses to record a Day 4 execution as real. GMV figures use observed amounts with modelled outcomes, so outputs say *projected GMV retained*, never "recovered GMV". Capacity is reported `UNAVAILABLE` because no capacity telemetry exists, and no recovery claim is made — Day 5 owns verification. See [`docs/DAY4A_IMPLEMENTATION_REPORT.md`](docs/DAY4A_IMPLEMENTATION_REPORT.md).
+
 ### Run the tests
 
 ```bash
 cd backend && .venv/Scripts/python -m pytest
 ```
 
-362 tests covering normalization, validation, database constraints, dataset-identity provenance, pipeline behaviour (atomicity, idempotency, drift, quarantine, failure recovery), synthetic-infrastructure determinism/provenance/coherence/distribution, incident injection and Approach B, detection and alert discipline, evidence traceability, hypothesis ranking, RCA with adversarial ground-truth isolation, and full regression runs against the real 250K source. Database tests use a separate `aventum_test` database and never touch the canonical load.
+472 tests covering normalization, validation, database constraints, dataset-identity provenance, pipeline behaviour (atomicity, idempotency, drift, quarantine, failure recovery), synthetic-infrastructure determinism/provenance/coherence/distribution, incident injection and Approach B, detection and alert discipline, evidence traceability, hypothesis ranking, RCA with adversarial ground-truth isolation, full regression runs against the real 250K source, and the Day 4A decision core (counterfactual validity, probability consistency with Day 3, deterministic risk, every policy gate failing closed independently, recommendation-number provenance, approval integrity, execution revalidation, and real-thread concurrency). Database tests use a separate `aventum_test` database and never touch the canonical load.
 
 ---
 
@@ -147,6 +175,9 @@ aventum/
 │   ├── aventum_ingest/  # Day 2A canonical ingestion package
 │   ├── aventum_synth/   # Day 2B synthetic infrastructure package
 │   ├── aventum_incident/# Day 3 incident injection, detection, evidence, RCA
+│   ├── aventum_counterfactual/ # Day 4A simulator, impact, risk, optimization
+│   ├── aventum_policy/  # Day 4A deterministic safety gate
+│   ├── aventum_action/  # Day 4A recommendation, approval, execution, audit
 │   ├── migrations/      # Alembic
 │   └── tests/
 ├── data/
