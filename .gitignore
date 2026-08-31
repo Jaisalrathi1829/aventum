@@ -24,3 +24,6 @@ Thumbs.db
 
 # Alembic
 *.pyc
+
+# Scratch logs from local API/test runs (Day 5). Never part of the deliverable.
+backend/_*.log

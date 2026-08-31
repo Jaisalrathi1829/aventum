@@ -1,0 +1,10 @@
+{
+  "description": "Effortlessly read and manage Markdown files with an intuitive interface, enhancing productivity and streamlining content organization for users.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

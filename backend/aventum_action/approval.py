@@ -217,6 +217,32 @@ def decide_approval(
 
     if decision not in (STATUS_APPROVED, STATUS_REJECTED):
         raise ApprovalError(f"decision must be {STATUS_APPROVED} or {STATUS_REJECTED}")
+
+    # Serialise concurrent decisions on this approval BEFORE reading its status.
+    #
+    # The terminal-status check below is a read-then-write, and without a lock every
+    # concurrent caller loads the row, all see PENDING, all pass, and all emit an
+    # APPROVAL_DECIDED event. Measured: five simultaneous requests produced five audit
+    # events for one human decision -- and a browser double-click produced two, because
+    # both clicks fire before React can disable the button. The final row was correct;
+    # the AUDIT TRAIL was not, which is worse, because the audit is what the product
+    # asks anyone to trust.
+    #
+    # `FOR UPDATE` makes PostgreSQL queue the losers until the winner commits;
+    # `populate_existing` forces the refreshed row into the identity map, so the loser
+    # sees APPROVED rather than the stale PENDING it loaded a moment earlier and takes
+    # the terminal-status branch below.
+    #
+    # This is the same shape of guarantee `uq_action_idempotency` and
+    # `uq_verification_identity` already give execution and verification. The approval
+    # decision was the one transition in the state machine with no equivalent guard.
+    approval = session.execute(
+        select(Approval)
+        .where(Approval.approval_id == approval.approval_id)
+        .with_for_update()
+        .execution_options(populate_existing=True)
+    ).scalar_one()
+
     if approval.status != STATUS_PENDING:
         raise ApprovalError(
             f"approval {approval.approval_id} is already {approval.status}; "

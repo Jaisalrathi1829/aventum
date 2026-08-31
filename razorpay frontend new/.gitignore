@@ -1,0 +1,24 @@
+node_modules/
+dist/
+build/
+.cache/
+.env*
+# ...but the template a fresh clone needs must ship. Same exception the root
+# .gitignore already makes; without it a judge cloning this repo gets no
+# VITE_AVENTUM_API_URL example and no way to know the API's address.
+!.env.example
+.vite/
+vite.config.*.timestamp-*
+*.tsbuildinfo
+*-debug.log*
+logs/
+*.log
+.claude-replay.*
+.tmp-*
+
+# Platform-managed agentplat state, not project source. In the
+# client-initiated single-repo workspace layout (make's `Path: "."` spec) the
+# repo root IS the workspace root, so these land inside this repo rather than
+# beside it.
+/.plugins/
+/.opencode-skills/

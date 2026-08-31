@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+/* ============================================================
+   Aventum — dark fintech control-plane theme
+   ============================================================ */
+:root {
+  /* grounds — calm neutral near-black, no cyber blue cast */
+  --background: #0b0d10;
+  --surface-0: #0f1216;
+  --surface-1: #14181d;
+  --surface-2: #1b2026;
+  --surface-3: #232932;
+
+  --foreground: #e7eaee;
+  --muted-foreground: #949ca8;
+  --faint-foreground: #626b78;
+
+  --border: #232931;
+  --border-strong: #2f3742;
+
+  /* single interactive accent — restrained, un-neon blue */
+  --accent: #5b91d6;
+  --accent-dim: #2b4a6e;
+  --ring: #5b91d6;
+
+  /* semantic signals — financial status, not neon */
+  --critical: #e0606b;
+  --critical-dim: #3d1519;
+  --warning: #d69a3e;
+  --warning-dim: #382b12;
+  --success: #47b98a;
+  --success-dim: #123329;
+  --info: #7f9cc9;
+
+  /* truth-category hues (provenance) — desaturated */
+  --observed: #9aa2ae;   /* neutral — historical facts */
+  --synthetic: #7f9cc9;  /* muted blue — modeled infra state */
+  --simulated: #63a0c4;  /* muted teal-blue — counterfactual */
+  --projected: #d69a3e;  /* amber — forward estimate */
+  --verified: #47b98a;   /* green — measured post-action */
+  --agent: #9a8fce;      /* muted violet — AI qualitative only */
+  --deterministic: #6f9a96; /* muted teal-slate — system-calculated */
+  --human: #c99a6a;      /* muted bronze — human action */
+
+  --radius: 8px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface-0: var(--surface-0);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-faint-foreground: var(--faint-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-accent: var(--accent);
+  --color-accent-dim: var(--accent-dim);
+  --color-critical: var(--critical);
+  --color-critical-dim: var(--critical-dim);
+  --color-warning: var(--warning);
+  --color-warning-dim: var(--warning-dim);
+  --color-success: var(--success);
+  --color-success-dim: var(--success-dim);
+  --color-info: var(--info);
+  --color-observed: var(--observed);
+  --color-synthetic: var(--synthetic);
+  --color-simulated: var(--simulated);
+  --color-projected: var(--projected);
+  --color-verified: var(--verified);
+  --color-agent: var(--agent);
+  --color-deterministic: var(--deterministic);
+  --color-human: var(--human);
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter Tight", "Inter", ui-sans-serif, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "cv02", "cv03", "cv04", "ss01";
+}
+
+/* tabular figures everywhere numbers matter */
+.tnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* thin, precise focus ring */
+:where(button, a, [role="button"], [tabindex]):focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* scrollbars — hidden until scrolling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+*:hover {
+  scrollbar-color: var(--border-strong) transparent;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 8px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+*:hover::-webkit-scrollbar-thumb {
+  background-color: var(--border-strong);
+}
+
+/* restrained state indicator — used only for genuinely in-progress states */
+@keyframes aventum-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+.live-dot {
+  animation: aventum-pulse 2.4s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .live-dot { animation: none; }
+}
