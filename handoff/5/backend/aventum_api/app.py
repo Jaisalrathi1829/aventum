@@ -22,11 +22,13 @@ from __future__ import annotations
 
 import logging
 import time
+from concurrent.futures import ThreadPoolExecutor
 
 from fastapi import APIRouter, Body, Depends, FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from sqlalchemy import select, text
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from aventum_action.approval import (
@@ -85,13 +87,28 @@ async def unhandled(request: Request, exc: Exception) -> JSONResponse:
     receives a stable code and a sentence.
     """
     log.exception("unhandled error on %s %s", request.method, request.url.path)
-    return JSONResponse(
+    response = JSONResponse(
         status_code=500,
         content={
             "code": "INTERNAL_ERROR",
             "message": "The request could not be completed. The error has been logged.",
         },
     )
+    # CORS headers must be attached BY HAND here.
+    #
+    # Starlette runs an `Exception` handler inside `ServerErrorMiddleware`, which wraps
+    # the user middleware stack -- so `CORSMiddleware` never sees this response and never
+    # decorates it. The browser then refuses to read a perfectly good JSON error and
+    # reports `TypeError: Failed to fetch`, which the client maps to NETWORK_UNREACHABLE.
+    #
+    # The visible consequence: with the database stopped, the console said "Cannot reach
+    # the Aventum backend" while the backend was up and answering. Every 500 was being
+    # misreported as an unreachable API.
+    origin = request.headers.get("origin")
+    if origin and origin in _config.cors_origins:
+        response.headers["Access-Control-Allow-Origin"] = origin
+        response.headers["Vary"] = "Origin"
+    return response
 
 
 # ---------------------------------------------------------------------------- health
@@ -104,13 +121,20 @@ def health(session: Session = Depends(get_session)) -> dict:
     down degrades the product rather than breaking it, so its unavailability is a field
     in a 200 response, not a 503.
     """
-    db_ok, db_detail = True, "connected"
-    try:
-        session.execute(text("SELECT 1"))
-    except Exception:
-        db_ok, db_detail = False, "unreachable"
-
-    agent_ok, agent_detail = _agent_availability()
+    # Probe the database and the agent CONCURRENTLY.
+    #
+    # Discovering a dead database costs ~4s (libpq's 2s connect floor, tried against both
+    # IPv6 and IPv4) and a cold agent probe costs ~2s. Run in series that is ~6s, which
+    # blows health's own budget and leaves the operator staring at an empty screen. Run
+    # together it is bounded by the slower of the two.
+    #
+    # Health is the one endpoint that must answer even when everything it reports on is
+    # broken, so it is the one endpoint worth spending a thread pair on.
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        db_future = pool.submit(_database_available, session)
+        agent_future = pool.submit(_agent_availability)
+        db_ok, db_detail = db_future.result()
+        agent_ok, agent_detail = agent_future.result()
 
     return {
         "api": {"ok": True, "version": API_VERSION},
@@ -127,6 +151,21 @@ def health(session: Session = Depends(get_session)) -> dict:
 # concurrent callers past their own client timeouts.
 #
 # The probe is still real -- it is just not repeated more than once per window.
+def _database_available(session: Session) -> tuple[bool, str]:
+    """
+    Whether the database answered. Never raises -- health must always be able to report.
+
+    A failure here is INFORMATION, not an outage of this endpoint: the API is alive and
+    saying so, which is precisely the distinction that was missing when a stopped
+    database made the UI report the API as unreachable.
+    """
+    try:
+        session.execute(text("SELECT 1"))
+        return True, "connected"
+    except Exception:
+        return False, "unreachable"
+
+
 _AGENT_PROBE_TTL_S = 15.0
 _agent_probe_cache: tuple[float, bool, str] | None = None
 
@@ -623,6 +662,21 @@ def create_approval_request(
         approval = request_approval(session, rec)
     except ApprovalError as exc:
         raise conflict("APPROVAL_NOT_PERMITTED", str(exc)) from exc
+    except IntegrityError as exc:
+        # `uq_approval_one_pending` is a PARTIAL unique index over
+        # (recommendation_id) WHERE status = 'PENDING'. `request_approval` also checks
+        # for an outstanding approval in application code, but that check is a
+        # read-then-write: under concurrent requests both callers read "none pending"
+        # and both insert, and the index -- correctly -- rejects the loser.
+        #
+        # The data was always safe; only the error contract was wrong. The loser used to
+        # receive an unhandled 500 for a condition that is not an error at all, merely a
+        # race it lost. It gets the same 409 the sequential path already returns.
+        session.rollback()
+        raise conflict(
+            "APPROVAL_NOT_PERMITTED",
+            f"an approval is already pending for recommendation {recommendation_id}",
+        ) from exc
     _commit(session)
     return {"environment": ser.ENVIRONMENT_NOTICE, "approval": ser.approval_row(approval)}
 
@@ -858,6 +912,25 @@ def agent_analyze(incident_id: int, session: Session = Depends(get_session)) -> 
         ) from exc
 
     outcome = analysis.outcome
+
+    # The loop CATCHES `AgentUnavailable` and returns it as an outcome rather than
+    # letting it propagate, so the `except` above never fires on this path and the
+    # endpoint used to answer 200 for a failed operation. The body was honest --
+    # status AGENT_UNAVAILABLE, no run id, no fabricated rationale -- but a client
+    # branching on HTTP status was told the call succeeded.
+    #
+    # Nothing is fabricated here and no run is invented: the failure is simply reported
+    # with the status code it always deserved, using the same envelope as the
+    # propagating case above so a client has one thing to handle.
+    if outcome.status == "AGENT_UNAVAILABLE":
+        _commit(session)   # keep whatever the loop legitimately persisted before failing
+        raise ApiError(
+            503,
+            "AGENT_UNAVAILABLE",
+            "The agent is unavailable. Deterministic incident analysis remains available.",
+            {"final_state": outcome.final_state},
+        )
+
     _commit(session)
     return {
         "environment": ser.ENVIRONMENT_NOTICE,

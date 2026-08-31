@@ -9,6 +9,7 @@ careless to reintroduce it at the HTTP boundary.
 
 from __future__ import annotations
 
+import logging
 from collections.abc import Iterator
 
 from fastapi import HTTPException
@@ -17,12 +18,39 @@ from sqlalchemy.orm import Session, sessionmaker
 
 from .config import load_api_config
 
+log = logging.getLogger("aventum.api.deps")
+
 _config = load_api_config()
+
+# How long a request may spend trying to reach a database that is not answering.
+#
+# Without this the engine inherits libpq's default, which against a stopped container is
+# effectively unbounded: measured, EVERY endpoint hung for over 120 seconds with
+# PostgreSQL down -- including `/api/health`, whose entire job is to report that the
+# database is down. It could not, because it blocked trying to ask it. The operator got
+# thirty seconds of empty skeletons and was then told the API was unreachable, which was
+# false: the API was fine and its dependency was not.
+#
+# Two seconds is libpq's FLOOR, not a preference: it silently promotes any smaller
+# value, so writing 1 here would be a comment that lies. It applies per address, and
+# psycopg tries IPv6 then IPv4, so a dead database costs ~4s to discover. That is why
+# `/api/health` probes the database and the agent CONCURRENTLY rather than in series --
+# see `_health_probes` in app.py.
+DB_CONNECT_TIMEOUT_S = 2
+# And how long to wait for a pooled connection when every one is busy. Unbounded here
+# turns pool exhaustion into the same silent hang.
+DB_POOL_TIMEOUT_S = 5
 
 # pool_pre_ping: the demo runs against a container that may be restarted underneath a
 # long-lived process. A stale pooled connection should be replaced, not surfaced to the
 # operator as an incident in their own product.
-_engine = create_engine(_config.database_url, pool_pre_ping=True, future=True)
+_engine = create_engine(
+    _config.database_url,
+    pool_pre_ping=True,
+    future=True,
+    pool_timeout=DB_POOL_TIMEOUT_S,
+    connect_args={"connect_timeout": DB_CONNECT_TIMEOUT_S},
+)
 _SessionFactory = sessionmaker(bind=_engine, expire_on_commit=False, future=True)
 
 
@@ -35,16 +63,36 @@ def get_engine():
 
 
 def get_session() -> Iterator[Session]:
-    """One transaction per request. Commit on success, roll back on anything else."""
+    """
+    One transaction per request. Commit on success, roll back on anything else.
+
+    The rollback and close are themselves guarded, because they run against the same
+    database that may be the thing which failed. When PostgreSQL was down, the handler
+    raised, `rollback()` raised again while unwinding, and the second exception escaped
+    during dependency cleanup -- after the response had begun. The browser saw the
+    connection abort ("Failed to fetch") rather than the clean JSON error the API had
+    already produced, so the UI reported the BACKEND as unreachable when the backend was
+    fine and its database was not.
+
+    Swallowing a cleanup failure is safe here in a way that swallowing a request failure
+    would not be: there is no transaction left to protect. Either the work committed or
+    it did not, and a connection that cannot roll back is one the pool will discard.
+    """
     session = _SessionFactory()
     try:
         yield session
         session.commit()
     except Exception:
-        session.rollback()
+        try:
+            session.rollback()
+        except Exception:
+            log.warning("rollback failed during request cleanup", exc_info=True)
         raise
     finally:
-        session.close()
+        try:
+            session.close()
+        except Exception:
+            log.warning("session close failed during request cleanup", exc_info=True)
 
 
 class ApiError(HTTPException):

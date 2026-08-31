@@ -43,6 +43,7 @@ from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 
 from sqlalchemy import select
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from aventum_action.models import Action, AuditEvent, Recommendation
@@ -479,7 +480,33 @@ def verify_action(session: Session, action_id: int, persist: bool = True) -> Ver
     )
 
     if persist:
-        _persist(session, action, recommendation, result)
+        try:
+            # A SAVEPOINT, so losing the race costs only this insert. Without it the
+            # IntegrityError would poison the whole transaction and the caller could not
+            # even re-read the winner's verdict.
+            with session.begin_nested():
+                _persist(session, action, recommendation, result)
+        except IntegrityError:
+            # `uq_verification_identity` has already done its job: another caller
+            # verified this action first. The database protected the DATA correctly --
+            # only one row was ever written -- but the exception used to escape as an
+            # unhandled 500, so the loser was told the request failed when in truth the
+            # work was complete and its answer was sitting in the table.
+            #
+            # Re-read and return the canonical verdict, which is what the loser was
+            # asking for. This makes concurrent verification idempotent in the same way
+            # sequential verification already was.
+            winner = session.scalars(
+                select(Verification).where(
+                    Verification.action_id == action_id,
+                    Verification.model_version == VERIFICATION_MODEL_VERSION,
+                )
+            ).first()
+            if winner is None:
+                # The constraint fired but no row is visible: that is not the race this
+                # handler is for, so it must not be swallowed.
+                raise
+            return _result_from_row(winner)
     return result
 
 

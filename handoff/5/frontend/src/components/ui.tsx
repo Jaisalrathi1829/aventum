@@ -104,6 +104,11 @@ export function Panel({ children, className, title, kicker, right, flush }: { ch
 }
 
 // --- Metric card -------------------------------------------------------
+// `big` steps down below 1400px. Measured at 1280x800, "₹70,422.00" rendered 164px wide
+// inside a 127px cell and was visually cut to "₹70,422.0" -- a headline business figure,
+// truncated, on a common laptop. The four-across layout is what the design calls for and
+// is preserved above 1400px where it genuinely fits; below that the type yields rather
+// than the number.
 export function Metric({ label, value, unit, truth, delta, deltaBad, sub, big }: { label: string; value: string; unit?: string; truth?: Truth; delta?: string | null; deltaBad?: boolean; sub?: ReactNode; big?: boolean }) {
   const unavailable = value === "UNAVAILABLE";
   return (
@@ -121,7 +126,7 @@ export function Metric({ label, value, unit, truth, delta, deltaBad, sub, big }:
           <span className="font-mono text-sm font-medium tracking-wide text-faint-foreground">UNAVAILABLE</span>
         ) : (
           <>
-            <span className={cx("tnum font-display font-semibold text-foreground", big ? "text-[30px] leading-none" : "text-[22px] leading-none")}>{value}</span>
+            <span className={cx("tnum font-display font-semibold text-foreground", big ? "text-[22px] min-[1400px]:text-[30px] leading-none" : "text-[22px] leading-none")}>{value}</span>
             {unit && <span className="text-sm font-medium text-muted-foreground">{unit}</span>}
           </>
         )}

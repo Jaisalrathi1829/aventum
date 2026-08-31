@@ -153,7 +153,11 @@ export function orUnavailable(
 // Endpoints. One function per backend route, named for what it returns.
 // ============================================================
 export const api = {
-  health: () => request<Health>("/api/health", { timeoutMs: 6_000 }),
+  // 12s, not 6s. When the database is down, health legitimately costs ~4s to answer:
+  // libpq's connect timeout floors at 2s and psycopg tries IPv6 then IPv4. A 6s budget
+  // left almost no margin, so health calls intermittently aborted and the sidebar
+  // reported the API as unreachable -- precisely when its report mattered most.
+  health: () => request<Health>("/api/health", { timeoutMs: 12_000 }),
 
   overview: () => request<Overview>("/api/overview"),
 
