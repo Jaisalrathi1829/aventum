@@ -177,8 +177,6 @@ fingerprint rather than duplicating rows.
 live system, and the [fix report](docs/FINAL_PRE_SUBMISSION_FIX_REPORT.md) — every defect
 it found, reproduced, fixed and re-tested.
 
-`frontend/`, `simulator/` and `agent/` are empty scaffold placeholders and are not used.
-
 ---
 
 ## Known limitations
