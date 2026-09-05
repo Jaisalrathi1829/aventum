@@ -27,3 +27,7 @@ Thumbs.db
 
 # Scratch logs from local API/test runs (Day 5). Never part of the deliverable.
 backend/_*.log
+# Server logs written when the stack is started for a local demo run.
+api_server.log
+frontend_server.log
+ollama_server.log

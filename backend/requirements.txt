@@ -8,3 +8,9 @@ pandas==3.0.5
 pyarrow==25.0.1
 python-dotenv==1.2.3
 pytest==9.1.1
+
+# HTTP surface (Day 5). httpx is never imported directly: it is the transport FastAPI's
+# TestClient runs on, so tests/test_day5_api.py will not collect without it.
+fastapi==0.121.2
+uvicorn==0.41.0
+httpx==0.28.1

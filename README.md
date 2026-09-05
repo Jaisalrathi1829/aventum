@@ -1,17 +1,22 @@
 # Aventum
 
-**AI payment incident intelligence.** Aventum detects a payment disruption, diagnoses it
-from evidence, simulates bounded recovery options, asks a human to approve one, executes
-it through a simulated adapter, then independently measures whether it actually helped —
-including concluding that it did not.
+AI-assisted payment incident recovery platform combining deterministic simulations, policy
+controls, human approval, and independent verification.
 
-The authority chain is the point:
+A gateway starts degrading. Aventum diagnoses the cause from evidence, simulates bounded
+recovery options, asks a human to approve one, executes it through a simulated adapter,
+then independently measures whether it actually helped — including concluding that it did
+not.
 
-> **deterministic systems calculate → the agent interprets → policy constrains → a human approves → a simulated adapter acts → independent verification measures**
+```
+Incident → Evidence / RCA → Counterfactual Simulation → Recommendation → Policy Validation
+   → Human Approval → Simulated Execution → Independent Verification → Audit
+```
 
-Every layer can refuse. The agent computes no business number and cannot approve or
-execute. Policy fails closed across 13 gates. Verification owns its own thresholds and can
-return `RECOVERY_NOT_VERIFIED`.
+Deterministic code owns every business number. The agent interprets evidence and
+orchestrates the workflow; it computes nothing, and it cannot approve or execute. Policy
+fails closed across 13 gates. Verification owns its own thresholds and can return
+`RECOVERY_NOT_VERIFIED`. Every layer can refuse.
 
 > Everything is a **synthetic incident with simulated execution**. No production
 > infrastructure is contacted and **no real money is recovered**. Projected and measured
@@ -131,6 +136,23 @@ Four properties are **structural, not procedural**:
 - `actions.is_simulated` and `verifications.is_simulated` carry `CHECK (= true)`: the
   database refuses to record an execution as real.
 - Incident ground truth lives in a table that no detection, RCA or agent code path reads.
+
+---
+
+## Tech stack
+
+| Layer | Built with |
+|---|---|
+| Backend | Python 3.12+, FastAPI, SQLAlchemy 2, Alembic, psycopg 3 |
+| Database | PostgreSQL 16 — constraints carry the invariants, not application code |
+| Agent | Qwen3 8B served locally by Ollama, called with a JSON Schema as the decoding constraint |
+| Frontend | React 19, Vite 8, TypeScript 5.7, Tailwind CSS 4 |
+| Data & tests | pandas, pyarrow, pytest |
+
+The agent is called with a response schema rather than `format: "json"`. Measured on the
+tool-selection turn, plain JSON mode produced 8/8 valid JSON but 0/8 in the required shape;
+schema-constrained decoding produced 8/8 in shape. The comparison is recorded in
+[`client.py`](backend/aventum_agent/client.py).
 
 ---
 
