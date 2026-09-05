@@ -1,5 +1,14 @@
 # Aventum
 
+**Payment Incident Recovery**
+
+- AI interprets
+- Simulation challenges
+- Deterministic policy constrains
+- Humans authorize
+- Execution is simulated
+- Verification proves
+
 AI-assisted payment incident recovery platform combining deterministic simulations, policy
 controls, human approval, and independent verification.
 
